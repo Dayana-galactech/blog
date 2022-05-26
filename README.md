@@ -1,4 +1,4 @@
 # blog
-Simple blog with CMS
-admin email: admin@gmail.com
+Simple blog with CMS </br>
+admin email: admin@gmail.com </br>
 admin password: admin
