@@ -4,7 +4,6 @@ namespace Utility;
 
 use Exception;
 use PDO;
-
 class Database {
 
     public static function getConnection(){
@@ -71,5 +70,6 @@ class Database {
             public function rowCount() {
                 return $this->statement->rowCount();
             }
+            
 }  
 

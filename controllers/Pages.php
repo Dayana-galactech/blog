@@ -27,5 +27,16 @@ class Pages extends Controller {
 
         $this->view('user_dashboard');
     }       
+    public function admin_manageCategories() {
 
+        $this->view('admin_manageCategories');
+    }   
+    public function admin_managePosts() {
+
+        $this->view('admin_managePosts');
+    }
+    public function admin_posts() {
+
+        $this->view('admin_posts');
+    }    
 }

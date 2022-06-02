@@ -44,9 +44,9 @@ class Users extends Controller
                             "username" => $data['username'],
                         );
                         if (in_array($_SESSION['user']['type'], ['Author'])) {
-                            header('location: http://localhost:8012/blog/?url=/users/user_dashboard');
+                            header('location:'.URLROOT.'/?url=/users/user_dashboard');
                         } else {
-                            header('location: http://localhost:8012/blog/?url=/users/admin_dashboard');
+                            header('location:'.URLROOT.'/?url=/users/admin_dashboard');
                         }
                     } else {
                         die('Something went wrong.');
@@ -108,28 +108,38 @@ class Users extends Controller
 
     public function createUserSession($user)
     {
-
+        
+       $userID=$this->userModel->getID($user->email);
         $_SESSION['user'] = array(
             "email" => $user->email,
             "username" => $user->username,
             "type" => $user->type,
+            "userID" =>"$userID",
         );
         // echo json_encode(['status' => 'ok']);
         if (in_array($_SESSION['user']['type'], ['Author'])) {
-            header('location: http://localhost:8012/blog/?url=/users/user_dashboard');
+            header('location:'.URLROOT.'/?url=/users/user_dashboard');
         } else {
-            header('location: http://localhost:8012/blog/?url=/users/admin_dashboard');
+            header('location:'.URLROOT.'/?url=/users/admin_manageCategories');
         }
     }
-    public function admin_dashboard()
-    {
-        $this->view('/admin_dashboard');
-    }
+
     public function user_dashboard()
     {
         $this->view('/user_dashboard');
     }
-
+    public function admin_manageCategories()
+    {
+        $this->view('/admin_manageCategories');
+    }
+    public function admin_managePosts()
+    {
+        $this->view('/admin_managePosts');
+    }
+    public function admin_posts()
+    {
+        $this->view('/admin_posts');
+    }
     public function logout()
     {
         unset($_SESSION['user']['username']);
@@ -138,6 +148,6 @@ class Users extends Controller
             setcookie(session_name(), '', time() - 7000000, '/');
         endif;
         session_destroy();
-        header('location: http://localhost:8012/blog/?url=/users/login');
+        header('location:'.URLROOT.'/?url=/users/login');
     }
 }

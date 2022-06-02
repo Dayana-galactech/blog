@@ -1,7 +1,7 @@
 
 function fetchcall() {
     var data = new FormData(document.getElementById("register"));
-    fetch('http://localhost:8012/blog/?url=/users/register', {
+    fetch('./users/register', {
         method: 'POST',
         body: data,
     })  
