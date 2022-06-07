@@ -19,24 +19,35 @@ class Pages extends Controller {
 
         $this->view('login');
     }
-    public function adminDashboard() {
-
-        $this->view('admin_dashboard');
-    } 
     public function userDashboard() {
 
         $this->view('user_dashboard');
     }       
-    public function admin_manageCategories() {
+    public function ManageCategories() {
 
-        $this->view('admin_manageCategories');
+        $this->view('ManageCategories');
     }   
-    public function admin_managePosts() {
+    public function ManagePosts() {
 
-        $this->view('admin_managePosts');
+        $this->view('ManagePosts');
     }
     public function admin_posts() {
 
         $this->view('admin_posts');
-    }    
+    }  
+    public function categories() {
+
+        $this->view('categories');
+    }   
+    public function posts() {
+
+        $this->view('posts');
+      
+    }   
+    public function yourArticles() {
+
+        $this->view('yourArticles');
+      
+    }   
+  
 }

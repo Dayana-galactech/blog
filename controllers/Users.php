@@ -20,6 +20,7 @@ class Users extends Controller
             'type' => '',
         ];
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            echo "inside post";
             $csrf = $_SESSION['csrf_token'];
             if (!empty($_POST['username']) && !empty($_POST['email'])  && !empty($_POST['password'])) {
                 if (isset($_POST['csrf']) && hash_equals($csrf, $_POST['csrf'])) {
@@ -39,17 +40,16 @@ class Users extends Controller
 
                     //Register user from model function
                     if ($this->userModel->register($data)) {
+                        $userID = $this->userModel->getID($data['email']);
                         $_SESSION['user'] = array(
                             "email" => $data['email'],
                             "username" => $data['username'],
+                            "type" => "$type",
+                            "userID" => "$userID",
                         );
-                        if (in_array($_SESSION['user']['type'], ['Author'])) {
-                            header('location:'.URLROOT.'/?url=/users/user_dashboard');
-                        } else {
-                            header('location:'.URLROOT.'/?url=/users/admin_dashboard');
-                        }
+                        header('location:' . URLROOT);
                     } else {
-                        die('Something went wrong.');
+                        echo 'Something went wrong.';
                     }
                 } else {
                     echo "csrf not valid";
@@ -59,7 +59,6 @@ class Users extends Controller
                 echo "Some fields are empty!";
             }
         } else {
-
             $this->view('/register', $data);
         }
     }
@@ -108,38 +107,17 @@ class Users extends Controller
 
     public function createUserSession($user)
     {
-        
-       $userID=$this->userModel->getID($user->email);
+
+        $userID = $this->userModel->getID($user->email);
         $_SESSION['user'] = array(
             "email" => $user->email,
             "username" => $user->username,
             "type" => $user->type,
-            "userID" =>"$userID",
+            "userID" => "$userID",
         );
-        // echo json_encode(['status' => 'ok']);
-        if (in_array($_SESSION['user']['type'], ['Author'])) {
-            header('location:'.URLROOT.'/?url=/users/user_dashboard');
-        } else {
-            header('location:'.URLROOT.'/?url=/users/admin_manageCategories');
-        }
+        header('location:' . URLROOT);
     }
 
-    public function user_dashboard()
-    {
-        $this->view('/user_dashboard');
-    }
-    public function admin_manageCategories()
-    {
-        $this->view('/admin_manageCategories');
-    }
-    public function admin_managePosts()
-    {
-        $this->view('/admin_managePosts');
-    }
-    public function admin_posts()
-    {
-        $this->view('/admin_posts');
-    }
     public function logout()
     {
         unset($_SESSION['user']['username']);
@@ -148,6 +126,6 @@ class Users extends Controller
             setcookie(session_name(), '', time() - 7000000, '/');
         endif;
         session_destroy();
-        header('location:'.URLROOT.'/?url=/users/login');
+        header('location:' . URLROOT . '/?url=/users/login');
     }
 }

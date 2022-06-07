@@ -6,7 +6,8 @@ function createCategory() {
     })  
         .then(res => res.text())
         .then((txt) => {
-           window.location = "http://localhost:8012/blog/?url=/users/admin_manageCategories";
+        
+           window.location = "http://localhost:8012/blog/?url=/pages/ManageCategories";
         });
         
     return false;

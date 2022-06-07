@@ -6,7 +6,8 @@ function login() {
     })
         // .then(res => res.text())
         // .then((txt) => {
-        // //    window.location = "http://localhost:8012/blog/?url=/users/index";
+        //     console.log(txt);
+        //    window.location = "http://localhost:8012/blog/";
         // });
         
     return false;

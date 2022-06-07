@@ -19,6 +19,9 @@ class Posts extends Controller
     {
         $this->userModel = $this->model('Post');
         $this->postcategory=$this->model('postcategory');
+        $this->changeone=$this->model('changeone');
+        $this->changetwo=$this->model('changetwo');
+        $this->changethree=$this->model('changethree');
         $this->db = new Database;
     }
     public function index()
@@ -69,6 +72,7 @@ class Posts extends Controller
                                     'categoryID'=>$_POST['categoryID'],
                                 ];
                                 $this->postcategory->postcategory($data2['postID'],$data2['categoryID']);
+                                header('Location:'. URLROOT);
                             
                         }else{
                             echo"failed to upload image";
@@ -129,7 +133,7 @@ class Posts extends Controller
                                     'categoryID'=>$_POST['categoryID'],
                                 ];
                                 $this->postcategory->updatepostcategory($data2['postID'],$data2['categoryID']);
-                            
+                          
                         }else{
                             echo"failed to upload image";
                         }
@@ -162,6 +166,84 @@ class Posts extends Controller
             }
         }else{
             echo "notpost";
+        }
+    }
+
+    public function searchPosts(){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if (!empty($_POST['categoryID'])) {
+                $categoryID=htmlspecialchars($_POST['categoryID']);
+                echo $categoryID;
+               $_SESSION['post']['categoryID']=$categoryID;
+               echo $_SESSION['post']['categoryID'];
+            }else{
+                echo "empty";
+            }
+        }else{
+            echo "notpost";
+        }
+    }
+    public function changeone(){
+        $data = [
+            'postID' => '',
+        ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if (!empty($_POST['postID'])) {
+                var_dump($_POST['postID']);     
+                            $data = [
+                                'postID' => $_POST['postID']
+                            ];
+                           $this->changeone->create($data['postID']);
+                                echo "created";
+                                header('Location:'. URLROOT);
+            }else{
+                echo "title or body empty";
+            }
+        }else{
+            echo "not post request";
+        }
+    }
+    public function changetwo(){
+        $data = [
+            'postID' => '',
+        ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if (!empty($_POST['postID'])) {
+                var_dump($_POST['postID']);     
+                            $data = [
+                                'postID' => $_POST['postID']
+                            ];
+                           $this->changetwo->create($data['postID']);
+                                echo "created";
+                                header('Location:'. URLROOT);
+            }else{
+                echo "title or body empty";
+            }
+        }else{
+            echo "not post request";
+        }
+    }
+    public function changethree(){
+        $data = [
+            'postID' => '',
+        ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if (!empty($_POST['postID'])) {
+                var_dump($_POST['postID']);     
+                            $data = [
+                                'postID' => $_POST['postID']
+                            ];
+                           $this->changethree->create($data['postID']);
+                                echo "created";
+                                header('Location:'. URLROOT);
+            }else{
+                echo "title or body empty";
+            }
+        }else{
+            echo "not post request";
         }
     }
 }

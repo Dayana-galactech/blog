@@ -3,14 +3,7 @@
 if (session_id() == '') {
     session_start();
 }
-if (isset($_GET['deletecategory'])) {
-    echo "inside delete";
-    $del = $_GET['deletecategory'];
 
-    $obj->deleteCategory($del);
-} else {
-    echo "nopp";
-}
 
 class Categories extends Controller
 {
@@ -21,10 +14,7 @@ class Categories extends Controller
     {
         $this->userModel = $this->model('Category');
     }
-    public function index()
-    {
-        $this->view('./admin_manageCategories');
-    }
+ 
 
 
     public function createCategory()
@@ -45,9 +35,16 @@ class Categories extends Controller
                     ];
                     if ($this->userModel->createCategory($data)) {
                         echo "created";
+                    }else{
+                        echo "not created";
                     }
                 }
+            }else{
+                echo "empty name";
             }
+        }
+        else{
+            echo "not post";
         }
     }
     public function updateCategory()
