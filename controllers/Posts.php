@@ -46,8 +46,9 @@ class Posts extends Controller
             if (!empty($_POST['title']) && !empty($_POST['body']) && !empty($_POST['categoryID'])) {
                 if (isset($_POST['csrf']) && hash_equals($csrf, $_POST['csrf'])) {
                     $image = $_FILES['image']['name'];
+                    $random=uniqid(); 
                     if (!empty($image)) {
-                        $target = "./images/" . basename($image);
+                        $target = "./images/"."".$random."". basename($image);
                         if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
                             $title = htmlspecialchars($_POST['title']);
                             $body = htmlspecialchars($_POST['body']);
@@ -60,7 +61,7 @@ class Posts extends Controller
                             $data = [
                                 'userID' => $_SESSION['user']['userID'],
                                 'title' => $title,
-                                'image' => $image,
+                                'image' => basename($target),
                                 'body' => $body,
                                 'published'=>$published
                             ];

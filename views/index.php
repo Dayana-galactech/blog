@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link href="http://localhost:8012/blog/css/main.min.css?ts=<?= time() ?>" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:8012/blog/node_modules/owl.carousel/dist/assets/owl.carousel.min.css?ts=<?= time() ?>">
+    <link rel="stylesheet" href="http://localhost:8012/blog/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css?ts=<?= time() ?>">
+
     <title>Blog</title>
 </head>
 
@@ -292,135 +295,17 @@
         </div>
 
         <div class="row mb-2">
-            <?php
-            $posts1ID = changetwo();
-            $num2 = 0;
-            foreach ($posts1ID as $post1ID) :
-                $num2++;
-                if ($num2 == sizeof($posts1ID)) {
-                    $byPostsID = getPostByID($post1ID['postID']);
-                    $categories = getPostCategory($post1ID['postID']);
-                    if (isset($_SESSION['user']['type']) && $_SESSION['user']['type'] == 'Admin') {
-                        $posts = getPost();
-                        foreach ($byPostsID as $byPostID) :
-                            foreach ($categories as $category) :
+            <?php $posts = getPostLimit();
             ?>
-                                <div class="col-md-6">
-                                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                                        <div class="col my-4 p-4 d-flex flex-column position-static">
-                                            <strong class="d-inline-block mb-2 text-success"><?php echo $category['name'] ?></strong>
-                                        <?php endforeach; ?>
-                                        <h3 class="mb-0"><?php echo $byPostID['title'] ?></h3>
-                                        <div class="mb-1 text-muted"><?php echo $byPostID['createdAt'] ?></div>
-                                        <form method="POST" id="changetwo" onsubmit="return changetwo();">
-                                            <select name="postID">
-                                                <option value="" selected disabled>Choose Article ID</option>
-                                                <?php foreach ($posts as $post) : ?>
-                                                    <option value="<?php echo $post['postID']; ?>">
-                                                        <?php echo $post['postID']; ?>
-                                                    </option>
-                                                <?php endforeach; ?>
-                                                <?php $selected = $post['postID']; ?>
-                                            </select>
-                                            <button type="submit" name="submit" class="btn btn-primary">Change</button>
-                                        </form>
-                                        </div>
+            <div class="owl-carousel owl-theme">
+                <?php foreach ($posts as $post) : ?>
+                    <div class="item">
+                        <img src="http://localhost:8012/blog/images/<?php echo $post['image'] ?>" class="img-thumbnail" alt="<?php $post['title'] ?>">
+                    </div>
+                <?php endforeach; ?>
+            </div>
 
-                                        <div class="col-6 d-none d-lg-block">
-                                            <image src="http://localhost:8012/blog/images/<?php echo $byPostID['image'] ?>" class="img-fluid h-100">
-                                        </div>
-
-                                    </div>
-                                </div>
-                            <?php endforeach; ?>
-                            <?php  } else {
-                            $posts = getPost();
-                            foreach ($byPostsID as $byPostID) :
-                                foreach ($categories as $category) : ?>
-                                    <div class="col-md-6">
-                                        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 h-md-200 shadow-sm  position-relative">
-                                            <div class="col my-4 p-4 d-flex flex-column position-static">
-                                                <strong class="d-inline-block mb-2 text-success"><?php echo $category['name'] ?></strong>
-                                            <?php endforeach; ?>
-                                            <h3 class="mb-0"><?php echo $byPostID['title'] ?></h3>
-                                            <div class="mb-1 text-muted"><?php echo $byPostID['createdAt'] ?></div>
-                                            </div>
-
-                                            <div class="col-6 d-none d-lg-block">
-                                                <image src="http://localhost:8012/blog/images/<?php echo $byPostID['image'] ?>" class="img-fluid h-100">
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                <?php endforeach; ?>
-                    <?php }
-                    }
-                endforeach; ?>
-                    <?php
-                    $posts2ID = changethree();
-                    $num3 = 0;
-                    foreach ($posts2ID as $post2ID) :
-                        $num3++;
-                        if ($num3 == sizeof($posts2ID)) {
-                            $byPostsID = getPostByID($post2ID['postID']);
-                            $categories = getPostCategory($post2ID['postID']);
-                            if (isset($_SESSION['user']['type']) && $_SESSION['user']['type'] == 'Admin') {
-                                $posts = getPost();
-                                foreach ($byPostsID as $byPostID) :
-                                    foreach ($categories as $category) :
-                    ?>
-                                        <div class="col-md-6">
-                                            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                                                <div class="col my-4 p-4 d-flex flex-column position-static">
-                                                    <strong class="d-inline-block mb-2 text-success"><?php echo $category['name'] ?></strong>
-                                                <?php endforeach; ?>
-                                                <h3 class="mb-0"><?php echo $byPostID['title'] ?></h3>
-                                                <div class="mb-1 text-muted"><?php echo $byPostID['createdAt'] ?></div>
-                                                <form method="POST" id="changetwo" onsubmit="return changetwo();">
-                                                    <select name="postID">
-                                                        <option value="" selected disabled>Choose Article ID</option>
-                                                        <?php foreach ($posts as $post) : ?>
-                                                            <option value="<?php echo $post['postID']; ?>">
-                                                                <?php echo $post['postID']; ?>
-                                                            </option>
-                                                        <?php endforeach; ?>
-                                                        <?php $selected = $post['postID']; ?>
-                                                    </select>
-                                                    <button type="submit" name="submit" class="btn btn-primary">Change</button>
-                                                </form>
-                                                </div>
-                                                <div class="col-6 d-none d-lg-block">
-                                                    <image src="http://localhost:8012/blog/images/<?php echo $byPostID['image'] ?>" class="img-fluid h-100">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    <?php endforeach; ?>
-                                    <?php  } else {
-                                    $posts = getPost();
-                                    foreach ($byPostsID as $byPostID) :
-                                        foreach ($categories as $category) : ?>
-                                            <div class="col-md-6">
-                                                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 h-md-200 shadow-sm  position-relative">
-                                                    <div class="col my-4 p-4 d-flex flex-column position-static">
-                                                        <strong class="d-inline-block mb-2 text-success"><?php echo $category['name'] ?></strong>
-                                                    <?php endforeach; ?>
-                                                    <h3 class="mb-0"><?php echo $byPostID['title'] ?></h3>
-                                                    <div class="mb-1 text-muted"><?php echo $byPostID['createdAt'] ?></div>
-                                                    </div>
-                                                    <div class="col-6 d-none d-lg-block">
-                                                        <image src="http://localhost:8012/blog/images/<?php echo $byPostID['image'] ?>" class="img-fluid h-100">
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        <?php endforeach; ?>
-                            <?php }
-                            }
-                        endforeach; ?>
         </div>
-
-
-
         <div class="row g-5">
             <div class="col-md-8">
                 <section>
@@ -680,9 +565,9 @@
                             <li><a href="http://localhost:8012/blog/?url=/pages/categories">All Categories</a></li>
                             <?php if (isset($_SESSION['user']['type'])) { ?>
                                 <li><a href="http://localhost:8012/blog/?url=/pages/yourArticles">Your Articles</a></li>
-                            
-                            <li><a href="http://localhost:8012/blog/?url=/pages/ManageCategories">Manage Categories</a></li>
-                            <li><a href="http://localhost:8012/blog/?url=/pages/ManagePosts">Manage Posts</a></li>
+
+                                <li><a href="http://localhost:8012/blog/?url=/pages/ManageCategories">Manage Categories</a></li>
+                                <li><a href="http://localhost:8012/blog/?url=/pages/ManagePosts">Manage Posts</a></li>
                             <?php } ?>
                         </ol>
                     </div>
@@ -707,13 +592,42 @@
             <a href="#">Back to top</a>
         </p>
     </footer>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".owl-carousel").owlCarousel({
+                nav: true,
+                loop: true,
+                autoplay: true,
+                autoplayTimeout: 3000,
+                
+                touchDrag: true,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: true,
+                        margin:0
+                    },
+                    980: {
+                        items: 3,
+                        nav: false,
+                        margin: 5,
+                    },
+                   
+                }
+            });
+        });
+    </script>
     <script src="js/changeone.js"> </script>
     <script src="js/changetwo.js"> </script>
     <script src="js/changethree.js"> </script>
     <script src="js/searchPosts.js"> </script>
     <script src="js/createPosts.js"> </script>
-    <script src="js/createCategory.js"></script>
+    <!-- <script src="js/createCategory.js"></script> -->
     <script src="js/cc.js"> </script>
+
+    <script src="node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 

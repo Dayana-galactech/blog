@@ -180,7 +180,10 @@ background-color:#fff3ff
     background-color: #ffff;
     color: black;
 }
-
+.item img {
+  height: 300px;
+  width: auto;
+}
 
 // import bootstrap
 @import '../node_modules/bootstrap/scss/bootstrap';

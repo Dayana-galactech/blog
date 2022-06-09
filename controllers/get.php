@@ -27,12 +27,21 @@ function getCategory()
         return $row;
     }
 }
-
+function getPostLimit()
+{
+    $database = new Database();
+    $db = $database->getConnection();
+    $sql = "SELECT users.username, posts.title, posts.postID, posts.createdAt, posts.published,posts.image, posts.body FROM users INNER JOIN posts ON users.userID=posts.userID AND posts.published='1' LIMIT 12 ";
+    $result = $db->query($sql);
+    while ($row = $result->fetchAll(PDO::FETCH_ASSOC)) {    
+        return $row;
+    }
+}
 function getPost()
 {
     $database = new Database();
     $db = $database->getConnection();
-    $sql = "SELECT users.username, posts.title, posts.postID, posts.createdAt, posts.published, posts.body FROM users INNER JOIN posts ON users.userID=posts.userID AND posts.published='1'  ";
+    $sql = "SELECT users.username, posts.title, posts.postID, posts.createdAt, posts.published,posts.image, posts.body FROM users INNER JOIN posts ON users.userID=posts.userID AND posts.published='1'  ";
     $result = $db->query($sql);
     while ($row = $result->fetchAll(PDO::FETCH_ASSOC)) {    
         return $row;
