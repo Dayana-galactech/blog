@@ -335,15 +335,9 @@ if (session_id() == '') {
         </main>
     </div>
     </div>
-
-
-
-
-
-    <script src="js/createComment.js"> </script>
-    <script src="js/updatePost.js"> </script>
-    <script src="js/deletePost.js"> </script>
-    <script src="js/createPosts.js"> </script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="js/cc.js"> </script>
+    <script src="node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 

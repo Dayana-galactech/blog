@@ -593,40 +593,7 @@
         </p>
     </footer>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $(".owl-carousel").owlCarousel({
-                nav: true,
-                loop: true,
-                autoplay: true,
-                autoplayTimeout: 3000,
-                
-                touchDrag: true,
-                responsiveClass: true,
-                responsive: {
-                    0: {
-                        items: 1,
-                        nav: true,
-                        margin:0
-                    },
-                    980: {
-                        items: 3,
-                        nav: false,
-                        margin: 5,
-                    },
-                   
-                }
-            });
-        });
-    </script>
-    <script src="js/changeone.js"> </script>
-    <script src="js/changetwo.js"> </script>
-    <script src="js/changethree.js"> </script>
-    <script src="js/searchPosts.js"> </script>
-    <script src="js/createPosts.js"> </script>
-    <!-- <script src="js/createCategory.js"></script> -->
     <script src="js/cc.js"> </script>
-
     <script src="node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
