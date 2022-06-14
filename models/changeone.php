@@ -15,9 +15,9 @@ class changeone extends BaseModel
         $this->db = new Database;
     }
   
-    public function create($data)
+    public function add($post1ID,$post2ID,$post3ID)
     {
-     $sql = "INSERT INTO " . $this->TABLE_NAME . " (postID) VALUES(" . $data . ");";
+     $sql = "INSERT INTO " . $this->TABLE_NAME . " (post1ID,post2ID,post3ID) VALUES(" . $post1ID . "," . $post2ID . "," . $post3ID . ");";
     $stmt = $this->pdo->prepare($sql);
     $stmt->execute();
     return $stmt;

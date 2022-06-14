@@ -49,5 +49,14 @@ class Pages extends Controller {
         $this->view('yourArticles');
       
     }   
-  
+    public function createPost() {
+
+        $this->view('createPost');
+      
+    }  
+    public function edit() {
+
+        $this->view('edit');
+      
+    } 
 }

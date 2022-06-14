@@ -95,7 +95,7 @@
   .text {
     overflow: hidden;
     line-height: 16px;     /* fallback */
-    max-height: 32px;      /* fallback */
+    max-height: 30px;      /* fallback */
   
  }
  .blog-footer {
@@ -184,6 +184,108 @@ background-color:#fff3ff
   height: 300px;
   width: auto;
 }
+.drag{
+  text-align: -webkit-center;
+}
+.drop-zone {
+  height: 300px;
+  padding: 25px;
+  // margin: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  cursor: pointer;
+  color: #009578;
+  border: 4px dashed #009578;
+  border-radius: 10px;
+}
 
+.drop-zone--over {
+  border-style: solid;
+}
+
+.drop-zone__input {
+  display: none;
+}
+
+.drop-zone__thumb {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #cccccc;
+  background-size: cover;
+  position: relative;
+}
+
+.drop-zone__thumb::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 5px 0;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.75);
+  font-size: 14px;
+  text-align: center;
+}
+.fa-solid{
+  font-size: 80px;
+}
+.hvr-grow {
+  display: inline-block;
+  vertical-align: middle;
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  transition-duration: 0.3s;
+  transition-property: transform;
+}
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+  transform: scale(1.1);
+}
+.loginbg{
+background-color: #f6f0c405;
+background-image: linear-gradient(269deg,  #c4f6f5 0%, #d99ec96b 74%);
+}
+@media only screen and (min-width: 992px) {
+  .loginbg{
+    margin-top: 10rem;
+  }
+  .drop-zone{
+    width: 50%;
+  }
+  .caption{
+    width: 50%;
+    height: 300px;
+   }
+}
+@media only screen and (max-width: 992px) {
+  .loginbg{
+    margin-top: 7rem;
+  }
+  .drop-zone{
+    width: 100%
+  }
+  .caption{
+    width: 100%;
+    height: 300px;
+   }
+}
+.select{
+  width: 250px;
+  text-align-last: center;
+  height: 30px;
+  background-color: #f0fff8;
+  border-radius: 10px;
+}
 // import bootstrap
 @import '../node_modules/bootstrap/scss/bootstrap';

@@ -51,7 +51,18 @@ function getAllPost()
 {
     $database = new Database();
     $db = $database->getConnection();
-    $sql = "SELECT users.username, posts.title, posts.postID, posts.createdAt, posts.published, posts.body FROM users INNER JOIN posts ON users.userID=posts.userID ";
+    $sql = "SELECT users.username, posts.title, posts.postID, posts.createdAt, posts.published, posts.body,posts.image FROM users INNER JOIN posts ON users.userID=posts.userID ";
+    $result = $db->query($sql);
+    while ($row = $result->fetchAll(PDO::FETCH_ASSOC)) {    
+        return $row;
+    }
+}
+function post($postID)
+{
+    
+    $database = new Database();
+    $db = $database->getConnection();
+    $sql = "SELECT users.username, posts.title, posts.postID, posts.createdAt, posts.published, posts.body, posts.image FROM users INNER JOIN posts ON users.userID=posts.userID WHERE posts.postID=$postID ";
     $result = $db->query($sql);
     while ($row = $result->fetchAll(PDO::FETCH_ASSOC)) {    
         return $row;
@@ -107,7 +118,7 @@ function getPostByYou($userID)
 function getPostCategory($postID){
     $database = new Database();
     $db = $database->getConnection();
-    $sql="SELECT category.name From postcategory INNER JOIN category ON category.categoryID=postcategory.categoryID WHERE postcategory.postID=$postID";
+    $sql="SELECT category.name, category.categoryID From postcategory INNER JOIN category ON category.categoryID=postcategory.categoryID WHERE postcategory.postID=$postID";
     $result = $db->query($sql);
     while ($row = $result->fetchAll(PDO::FETCH_ASSOC)) {
         return $row;
@@ -136,7 +147,7 @@ function changeone()
 {
     $database = new Database();
     $db = $database->getConnection();
-    $sql = "SELECT postID FROM card1 ";
+    $sql = "SELECT post1ID, post2ID, post3ID FROM card1 ";
     $result = $db->query($sql);
     while ($row = $result->fetchAll(PDO::FETCH_ASSOC)) {    
         return $row;
@@ -147,7 +158,7 @@ function changetwo()
 {
     $database = new Database();
     $db = $database->getConnection();
-    $sql = "SELECT postID FROM card2 ";
+    $sql = "SELECT post2ID FROM card2 ";
     $result = $db->query($sql);
     while ($row = $result->fetchAll(PDO::FETCH_ASSOC)) {    
         return $row;
