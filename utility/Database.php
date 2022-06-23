@@ -13,7 +13,7 @@ class Database {
 
             $config= (array) json_decode($var);
 
-            $pdo = new PDO("mysql:host=" . $config['host'] . ";dbname=" .$config['dbname'], $config['user'], $config['password']);
+            $pdo = new PDO("mysql:host=" . $config['host'] . ";dbname=" .$config['dbname'].";port=".$config['port'], $config['user'], $config['password']);
             $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $pdo->exec("set names utf8");

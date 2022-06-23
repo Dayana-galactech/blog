@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <link href="http://localhost:8012/blog/css/main.min.css?ts=<?= time() ?>" rel="stylesheet">
-    <link rel="stylesheet" href="http://localhost:8012/blog/node_modules/owl.carousel/dist/assets/owl.carousel.min.css?ts=<?= time() ?>">
-    <link rel="stylesheet" href="http://localhost:8012/blog/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css?ts=<?= time() ?>">
+    <link href="css/main.min.css?ts=<?= time() ?>" rel="stylesheet">
+    <link rel="stylesheet" href="node_modules/owl.carousel/dist/assets/owl.carousel.min.css?ts=<?= time() ?>">
+    <link rel="stylesheet" href="node_modules/owl.carousel/dist/assets/owl.theme.default.min.css?ts=<?= time() ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -34,11 +34,11 @@
         <header class="blog-header py-3">
             <div class="row flex-nowrap justify-content-between align-items-center">
                 <div class="col-4 pt-1">
-                    <a class="blog-header-logo text-dark" href="http://localhost:8012/blog/">Blog</a>
+                    <a class="blog-header-logo text-dark" href="#">Blog</a>
                 </div>
                 <div class="col-4 d-flex justify-content-end align-items-center">
                     <?php if (!isset($_SESSION['user']['type'])) { ?>
-                        <a class="btn btn-sm btn-outline-secondary" href="http://localhost:8012/blog/?url=/users/login">Sign in</a>
+                        <a class="btn btn-sm btn-outline-secondary" href="?url=/users/login">Sign in</a>
                     <?php } else { ?>
                         <a class="btn btn-sm btn-outline-secondary" href="http://localhost:8012/blog/?url=/users/logout">Sign out</a>
                     <?php } ?>

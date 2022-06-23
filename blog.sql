@@ -7,6 +7,7 @@
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.1.12
 
+SET sql_require_primary_key=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
