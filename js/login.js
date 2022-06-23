@@ -4,11 +4,11 @@ function login() {
         method: 'POST',
         body: data,
     })
-        // .then(res => res.text())
-        // .then((txt) => {
-        //     console.log(txt);
+        .then(res => res.text())
+        .then((txt) => {
+            console.log(txt);
         //    window.location = "http://localhost:8012/blog/";
-        // });
+        });
         
     return false;
 }
