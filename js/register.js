@@ -1,7 +1,7 @@
 
 function fetchcall() {
     var data = new FormData(document.getElementById("register"));
-    fetch('./users/register', {
+    fetch('?url=/users/register', {
         method: 'POST',
         body: data,
     })  

@@ -1,6 +1,6 @@
 function login() {
     var data = new FormData(document.getElementById("login"));
-    fetch('./users/login', {
+    fetch('?url=/users/login', {
         method: 'POST',
         body: data,
     })
