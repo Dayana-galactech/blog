@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <link href="http://localhost:8012/blog/css/main.min.css?ts=<?= time() ?>" rel="stylesheet">
-    <link rel="stylesheet" href="http://localhost:8012/blog/node_modules/owl.carousel/dist/assets/owl.carousel.min.css?ts=<?= time() ?>">
-    <link rel="stylesheet" href="http://localhost:8012/blog/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css?ts=<?= time() ?>">
+    <link href="css/main.min.css?ts=<?= time() ?>" rel="stylesheet">
+    <link rel="stylesheet" href="node_modules/owl.carousel/dist/assets/owl.carousel.min.css?ts=<?= time() ?>">
+    <link rel="stylesheet" href="node_modules/owl.carousel/dist/assets/owl.theme.default.min.css?ts=<?= time() ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -34,13 +34,13 @@
         <header class="blog-header py-3">
             <div class="row flex-nowrap justify-content-between align-items-center">
                 <div class="col-4 pt-1">
-                    <a class="blog-header-logo text-dark" href="http://localhost:8012/blog/">Blog</a>
+                    <a class="blog-header-logo text-dark" href="https://dayana.galactech.cloud">Blog</a>
                 </div>
                 <div class="col-4 d-flex justify-content-end align-items-center">
                     <?php if (!isset($_SESSION['user']['type'])) { ?>
-                        <a class="btn btn-sm btn-outline-secondary" href="http://localhost:8012/blog/?url=/users/login">Sign in</a>
+                        <a class="btn btn-sm btn-outline-secondary" href="?url=/users/login">Sign in</a>
                     <?php } else { ?>
-                        <a class="btn btn-sm btn-outline-secondary" href="http://localhost:8012/blog/?url=/users/logout">Sign out</a>
+                        <a class="btn btn-sm btn-outline-secondary" href="?url=/users/logout">Sign out</a>
                     <?php } ?>
                 </div>
             </div>
@@ -237,7 +237,7 @@
                                     <!-- Modal body -->
                                     <div class="modal-body text-center">
                                         <div class="row">
-                                            <image class="my-3" src="http://localhost:8012/blog/images/<?php echo $byPost4ID['image'] ?>"></image>
+                                            <image class="my-3" src="images/<?php echo $byPost4ID['image'] ?>"></image>
                                             <p class="text-dark"><?php echo $byPost4ID['body'] ?></p>
                                         </div>
                                         <div class="row">
@@ -290,10 +290,10 @@
                                                             <?php } ?>
                                                             <?php if (!isset($_SESSION['user']['type'])) { ?>
                                                                 <h6 class="text-danger">Please SignIn to Comment on this Post!</h6>
-                                                                <a href="http://localhost:8012/blog/?url=/users/login" class="text-danger">Click me to login</a>
+                                                                <a href="?url=/users/login" class="text-danger">Click me to login</a>
 
                                                                 <h6 class="text-primary mt-4">Don't have an Account?</br></h6>
-                                                                <a href="http://localhost:8012/blog/?url=/users/register">Click me to register</a>
+                                                                <a href="?url=/users/register">Click me to register</a>
 
                                                             <?php } ?>
                                                         </div>
@@ -343,7 +343,7 @@
                                     <!-- Modal body -->
                                     <div class="modal-body text-center">
                                         <div class="row">
-                                            <image class="my-3" src="http://localhost:8012/blog/images/<?php echo $byPost5ID['image'] ?>"></image>
+                                            <image class="my-3" src="images/<?php echo $byPost5ID['image'] ?>"></image>
                                             <p class="text-dark"><?php echo $byPost4ID['body'] ?></p>
                                         </div>
                                         <div class="row">
@@ -396,10 +396,10 @@
                                                             <?php } ?>
                                                             <?php if (!isset($_SESSION['user']['type'])) { ?>
                                                                 <h6 class="text-danger">Please SignIn to Comment on this Post!</h6>
-                                                                <a href="http://localhost:8012/blog/?url=/users/login" class="text-danger">Click me to login</a>
+                                                                <a href="?url=/users/login" class="text-danger">Click me to login</a>
 
                                                                 <h6 class="text-primary mt-4">Don't have an Account?</br></h6>
-                                                                <a href="http://localhost:8012/blog/?url=/users/register">Click me to register</a>
+                                                                <a href="?url=/users/register">Click me to register</a>
 
                                                             <?php } ?>
                                                         </div>
@@ -448,7 +448,7 @@
                                     <!-- Modal body -->
                                     <div class="modal-body text-center">
                                         <div class="row">
-                                            <image class="my-3" src="http://localhost:8012/blog/images/<?php echo $byPost6ID['image'] ?>"></image>
+                                            <image class="my-3" src="images/<?php echo $byPost6ID['image'] ?>"></image>
                                             <p class="text-dark"><?php echo $byPost6ID['body'] ?></p>
                                         </div>
                                         <div class="row">
@@ -501,10 +501,10 @@
                                                             <?php } ?>
                                                             <?php if (!isset($_SESSION['user']['type'])) { ?>
                                                                 <h6 class="text-danger">Please SignIn to Comment on this Post!</h6>
-                                                                <a href="http://localhost:8012/blog/?url=/users/login" class="text-danger">Click me to login</a>
+                                                                <a href="?url=/users/login" class="text-danger">Click me to login</a>
 
                                                                 <h6 class="text-primary mt-4">Don't have an Account?</br></h6>
-                                                                <a href="http://localhost:8012/blog/?url=/users/register">Click me to register</a>
+                                                                <a href="?url=/users/register">Click me to register</a>
 
                                                             <?php } ?>
                                                         </div>
@@ -533,7 +533,7 @@
             <div class="owl-two owl-carousel owl-theme">
                 <?php foreach ($posts as $post) : ?>
                     <div class="item">
-                        <a href="http://localhost:8012/blog/?url=/pages/categories"> <img src="http://localhost:8012/blog/images/<?php echo $post['image'] ?>" class="img-thumbnail" alt="<?php $post['title'] ?>"></a>
+                        <a href="?url=/pages/categories"> <img src="images/<?php echo $post['image'] ?>" class="img-thumbnail" alt="<?php $post['title'] ?>"></a>
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -582,7 +582,7 @@
                                         <!-- Modal body -->
                                         <div class="modal-body text-center">
                                             <div class="row">
-                                                <image class="my-3" src="http://localhost:8012/blog/images/<?php echo $byCategoryID['image'] ?>"></image>
+                                                <image class="my-3" src="images/<?php echo $byCategoryID['image'] ?>"></image>
                                                 <p><?php echo $byCategoryID['body'] ?></p>
                                             </div>
                                             <div class="row">
@@ -636,10 +636,10 @@
                                                                 <?php } ?>
                                                                 <?php if (!isset($_SESSION['user']['type'])) { ?>
                                                                     <h6 class="text-danger">Please SignIn to Comment on this Post!</h6>
-                                                                    <a href="http://localhost:8012/blog/?url=/users/login" class="text-danger">Click me to login</a>
+                                                                    <a href="?url=/users/login" class="text-danger">Click me to login</a>
 
                                                                     <h6 class="text-primary mt-4">Don't have an Account?</br></h6>
-                                                                    <a href="http://localhost:8012/blog/?url=/users/register">Click me to register</a>
+                                                                    <a href="?url=/users/register">Click me to register</a>
 
                                                                 <?php } ?>
                                                             </div>
@@ -680,7 +680,7 @@
                                 </button>
                             </div>
                             <div class="col-lg-6 text-center">
-                                <a href="http://localhost:8012/blog/?url=/pages/createPost" class="bi bi-plus-circle-fill btn btn-primary my-5 ">
+                                <a href="?url=/pages/createPost" class="bi bi-plus-circle-fill btn btn-primary my-5 ">
                                     Create New Post
                                 </a>
                             </div>
@@ -691,11 +691,11 @@
                         <div class="row">
                             <div class="col-md-6 text-center my-4">
                                 <h5 class="text-primary">Please Sign In </h5>
-                                <a href="http://localhost:8012/blog/?url=/users/login" class="text-primary">Click me to login</a>
+                                <a href="?url=/users/login" class="text-primary">Click me to login</a>
                             </div>
                             <div class="col-md-6 text-center my-4">
                                 <h5 class="text-primary">Don't have an Account?</br></h5>
-                                <a href="http://localhost:8012/blog/?url=/users/register">Click me to register</a>
+                                <a href="?url=/users/register">Click me to register</a>
                             </div>
                         </div>
                     <?php } ?>
@@ -751,12 +751,12 @@
                     <div class="p-4">
                         <h4 class="fst-italic">Articles</h4>
                         <ol class="list-unstyled mb-0">
-                            <li><a href="http://localhost:8012/blog/?url=/pages/categories">All Categories</a></li>
+                            <li><a href="?url=/pages/categories">All Categories</a></li>
                             <?php if (isset($_SESSION['user']['type'])) { ?>
-                                <li><a href="http://localhost:8012/blog/?url=/pages/yourArticles">Your Articles</a></li>
+                                <li><a href="?url=/pages/yourArticles">Your Articles</a></li>
 
-                                <li><a href="http://localhost:8012/blog/?url=/pages/ManageCategories">Manage Categories</a></li>
-                                <li><a href="http://localhost:8012/blog/?url=/pages/ManagePosts">Manage Posts</a></li>
+                                <li><a href="?url=/pages/ManageCategories">Manage Categories</a></li>
+                                <li><a href="?url=/pages/ManagePosts">Manage Posts</a></li>
                             <?php } ?>
                         </ol>
                     </div>

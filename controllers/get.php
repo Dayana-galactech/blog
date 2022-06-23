@@ -2,7 +2,6 @@
 if (session_id() == '') {
     session_start();
 }
-require_once('./utility/Database.php ');
 
 use Utility\Database;
 

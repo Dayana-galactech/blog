@@ -15,7 +15,7 @@
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                 <div class="card shadow-2-strong" style="border-radius: 1rem;">
-                    <a href="http://localhost:8012/blog/" class="blog-header-logo text-dark ps-5 pt-3">Blog</a>
+                    <a href="https://dayana.galactech.cloud" class="blog-header-logo text-dark ps-5 pt-3">Blog</a>
                     <div class="card-body p-5 text-center">
 
                         <h3 class="mb-5">Sign in</h3>
@@ -36,7 +36,7 @@
                             <div class="form-outline mb-4">
                                 <input type="password" name="password" id="password" placeholder="Password" class="form-control form-control-lg" />
                             </div>
-                            <p class="py-3">No account?&nbsp;<a href="http://localhost:8012/blog/?url=/users/register">Create One </a></p>
+                            <p class="py-3">No account?&nbsp;<a href="?url=/users/register">Create One </a></p>
                             <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
                         </form>
                     </div>
