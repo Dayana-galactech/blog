@@ -10,21 +10,21 @@ if (session_id() == '') {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <link href="http://localhost:8012/blog/css/main.min.css?ts=<?= time() ?>" rel="stylesheet">
+    <link href="css/main.min.css?ts=<?= time() ?>" rel="stylesheet">
     <title>Upate Posts</title>
 </head>
 
 <body>
 
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-12 col-md-3 col-lg-2 me-0 px-3 text-center" href="http://localhost:8012/blog">Blog</a>
+        <a class="navbar-brand col-12 col-md-3 col-lg-2 me-0 px-3 text-center" href="https://dayana.galactech.cloud">Blog</a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="navbar-nav">
             <div class="nav-item text-nowrap">
-                <?php if (isset($_SESSION['user']['type'])) { ?> <a class="nav-link px-3" href="http://localhost:8012/blog/?url=/users/logout">Sign out</a> <?php } else { ?>
-                    <a class="nav-link px-3" href="http://localhost:8012/blog/?url=/users/logout">Sign in</a> <?php } ?>
+                <?php if (isset($_SESSION['user']['type'])) { ?> <a class="nav-link px-3" href="?url=/users/logout">Sign out</a> <?php } else { ?>
+                    <a class="nav-link px-3" href="?url=/users/logout">Sign in</a> <?php } ?>
             </div>
         </div>
     </header>
@@ -35,26 +35,26 @@ if (session_id() == '') {
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column fs-5 pt-lg-5 my-5 ps-lg-3">
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8012/blog/?url=/pages/categories">
+                            <a class="nav-link" href="?url=/pages/categories">
                                 <span data-feather="file"></span>
                                 All Categories
                             </a>
                         </li>
                         <?php if (isset($_SESSION['user']['type'])) { ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="http://localhost:8012/blog/?url=/pages/yourArticles">
+                                <a class="nav-link" href="?url=/pages/yourArticles">
                                     <span data-feather="shopping-cart"></span>
                                     Your Articles
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="http://localhost:8012/blog/?url=/pages/ManageCategories">
+                                <a class="nav-link" href="?url=/pages/ManageCategories">
                                     <span data-feather="users"></span>
                                     Manage Categories
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="http://localhost:8012/blog/?url=/pages/ManagePosts">
+                                <a class="nav-link active" aria-current="page" href="?url=/pages/ManagePosts">
                                     <span data-feather="bar-chart-2"></span>
                                     Manage Posts
                                 </a>
