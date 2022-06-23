@@ -126,7 +126,7 @@ function updateThumbnail(dropZoneElement, file) {
 
 function cc(postID) {
     var data = new FormData(document.getElementById("cc" + postID));
-    fetch('http://localhost:8012/blog/?url=/comments/cc', {
+    fetch('?url=/comments/cc', {
         method: 'POST',
         body: data,
     })
@@ -140,42 +140,42 @@ function cc(postID) {
 }
 function createCategory() {
     var data = new FormData(document.getElementById("createCategory"));
-    fetch('http://localhost:8012/blog/?url=/categories/createCategory', {
+    fetch('?url=/categories/createCategory', {
         method: 'POST',
         body: data,
     })
         .then(res => res.text())
         .then((txt) => {
 
-            window.location = "http://localhost:8012/blog/?url=/pages/ManageCategories";
+            window.location = "?url=/pages/ManageCategories";
         });
 
     return false;
 }
 function changeone() {
     var data = new FormData(document.getElementById("changeone"));
-    fetch('http://localhost:8012/blog/?url=/posts/changeone', {
+    fetch('?url=/posts/changeone', {
         method: 'POST',
         body: data,
     })
         .then(res => res.text())
         .then((txt) => {
             // console.log(txt);
-            window.location = "http://localhost:8012/blog";
+            window.location = "https://dayana.galactech.cloud";
         });
 
     return false;
 }
 function searchPost() {
     var data = new FormData(document.getElementById("searchPosts"));
-    fetch('http://localhost:8012/blog/?url=/posts/searchPosts', {
+    fetch('?url=/posts/searchPosts', {
         method: 'POST',
         body: data,
     })
         .then(res => res.text())
         .then((txt) => {
             console.log(txt);
-            window.location = "http://localhost:8012/blog/?url=/pages/posts";
+            window.location = "?url=/pages/posts";
         });
 
     return false;
@@ -183,14 +183,14 @@ function searchPost() {
 function edit(ID) {
    
     var data = new FormData(document.getElementById("edit"+ID));
-    fetch('http://localhost:8012/blog/?url=/posts/edit', {
+    fetch('?url=/posts/edit', {
         method: 'POST',
         body: data,
     })
         .then(res => res.text())
         .then((txt) => {
             console.log(txt);
-            window.location = "http://localhost:8012/blog/?url=/pages/edit";
+            window.location = "?url=/pages/edit";
         });
 
     return false;
@@ -198,14 +198,14 @@ function edit(ID) {
 function searchPosts(ID) {
     console.log(ID);
     var data = new FormData(document.getElementById("searchPosts" + ID));
-    fetch('http://localhost:8012/blog/?url=/posts/searchPosts', {
+    fetch('?url=/posts/searchPosts', {
         method: 'POST',
         body: data,
     })
         .then(res => res.text())
         .then((txt) => {
             console.log(txt);
-            window.location = "http://localhost:8012/blog/?url=/pages/posts";
+            window.location = "?url=/pages/posts";
         });
 
     return false;
@@ -213,69 +213,69 @@ function searchPosts(ID) {
 
 function createPosts() {
     var data = new FormData(document.getElementById("createPost"));
-    fetch('http://localhost:8012/blog/?url=/posts/createPost', {
+    fetch('?url=/posts/createPost', {
         method: 'POST',
         body: data,
     })
         .then(res => res.text())
         .then((txt) => {
-            window.location = "http://localhost:8012/blog/?url=/pages/ManagePosts";
+            window.location = "?url=/pages/ManagePosts";
         });
 
     return false;
 }
 function deletecategory(categoryID) {
     var data = new FormData(document.getElementById("deleteRow" + categoryID));
-    fetch('http://localhost:8012/blog/?url=/categories/deleteCategory', {
+    fetch('?url=/categories/deleteCategory', {
         method: 'POST',
         body: data,
     })
         .then(res => res.text())
         .then((txt) => {
             console.log(txt);
-            window.location = "http://localhost:8012/blog/?url=/pages/ManageCategories";
+            window.location = "?url=/pages/ManageCategories";
         });
 
     return false;
 }
 function deletePost(postID) {
     var data = new FormData(document.getElementById("deleteRow" + postID));
-    fetch('http://localhost:8012/blog/?url=/posts/deletePost', {
+    fetch('?url=/posts/deletePost', {
         method: 'POST',
         body: data,
     })
         .then(res => res.text())
         .then((txt) => {
             console.log(txt);
-            window.location = "http://localhost:8012/blog/?url=/pages/ManagePosts";
+            window.location = "?url=/pages/ManagePosts";
         });
 
     return false;
 }
 function updateCategory(categoryID) {
     var data = new FormData(document.getElementById("updateCategory" + categoryID));
-    fetch('http://localhost:8012/blog/?url=/categories/updateCategory', {
+    fetch('?url=/categories/updateCategory', {
         method: 'POST',
         body: data,
     })
         .then(res => res.text())
         .then((txt) => {
             console.log(txt);
-            window.location = "http://localhost:8012/blog/?url=/pages/ManageCategories";
+            window.location = "?url=/pages/ManageCategories";
         });
 
     return false;
 }
 function updatePost(postID) {
     var data = new FormData(document.getElementById("updatePost" + postID));
-    fetch('http://localhost:8012/blog/?url=/posts/updatePost', {
+    fetch('?url=/posts/updatePost', {
         method: 'POST',
         body: data,
     })
         .then(res => res.text())
         .then((txt) => {
             console.log(txt);
-            window.location = "http://localhost:8012/blog/?url=/pages/ManagePosts";
+            window.location = "?url=/pages/ManagePosts";
         });
 
     return false;
