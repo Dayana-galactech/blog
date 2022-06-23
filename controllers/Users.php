@@ -101,7 +101,6 @@ class Users extends Controller
                 'email' => '',
                 'password' => '',
             ];
-            echo "not post";
         }
         $this->view('/login', $data);
     }
