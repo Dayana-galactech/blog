@@ -37,7 +37,7 @@
                     <a class="blog-header-logo text-dark" href="#">Blog</a>
                 </div>
                 <div class="col-4 d-flex justify-content-end align-items-center">
-                    <p><?php var_dump($_SESSION['user']['type']) ?></p>
+                    <p><?php var_dump($_SESSION['user']['userID']) ?></p>
                     <?php if (!isset($_SESSION['user']['type'])) { ?>
                         <a class="btn btn-sm btn-outline-secondary" href="<?= APP_URL ?>users/login">Sign in</a>
                     <?php } else { ?>
