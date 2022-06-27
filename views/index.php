@@ -786,7 +786,7 @@
     <script>
         AOS.init();
     </script>
-    <script src="js/cc.js"> </script>
+    <script src="/js/cc.js"> </script>
     <script>
         const element = document.querySelector('.title-animate');
         element.style.setProperty('--animate-duration', '5s');
