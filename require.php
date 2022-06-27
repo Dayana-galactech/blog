@@ -1,5 +1,6 @@
 <?php
 //Require libraries from folder libraries
+require_once './globals.php';
 require_once './utility/core.php';
 require_once './utility/controller.php';
 require_once './utility/Database.php';
