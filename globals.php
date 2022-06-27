@@ -1,2 +1,2 @@
 <?php 
-define('APP_URL','/');  
+define('APP_URL','?url=/');  
