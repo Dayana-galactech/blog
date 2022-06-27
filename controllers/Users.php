@@ -115,7 +115,7 @@ class Users extends Controller
             "type" => $user->type,
             "userID" => "$userID",
         );
-        var_dump( $_SESSION['user']['type']);
+       echo $_SESSION['user']['type'];
         header('location:' . URLROOT);
     }
 
