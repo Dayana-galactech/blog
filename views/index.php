@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <link href="css/main.min.css?ts=<?= time() ?>" rel="stylesheet">
-    <link rel="stylesheet" href="node_modules/owl.carousel/dist/assets/owl.carousel.min.css?ts=<?= time() ?>">
-    <link rel="stylesheet" href="node_modules/owl.carousel/dist/assets/owl.theme.default.min.css?ts=<?= time() ?>">
+    <link href="/css/main.min.css?ts=<?= time() ?>" rel="stylesheet">
+    <link rel="stylesheet" href="/node_modules/owl.carousel/dist/assets/owl.carousel.min.css?ts=<?= time() ?>">
+    <link rel="stylesheet" href="/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css?ts=<?= time() ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -781,7 +781,7 @@
             <a href="#">Back to top</a>
         </p>
     </footer>
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
@@ -792,7 +792,7 @@
         element.style.setProperty('--animate-duration', '5s');
     </script>
     <script src="https://kit.fontawesome.com/7f32366874.js" crossorigin="anonymous"></script>
-    <script src="node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
+    <script src="/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 
