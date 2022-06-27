@@ -134,6 +134,20 @@ if (session_id() == '') {
     </div>
     </div>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+      tinymce.init({
+        selector: '#body',
+        plugins: [
+          'a11ychecker','advlist','advcode','advtable','autolink','checklist','export',
+          'lists','link','image','charmap','preview','anchor','searchreplace','visualblocks',
+          'powerpaste','fullscreen','formatpainter','insertdatetime','media','table','help','wordcount'
+        ],
+        toolbar: 'undo redo | formatpainter casechange blocks | bold italic backcolor | ' +
+          'alignleft aligncenter alignright alignjustify | ' +
+          'bullist numlist checklist outdent indent | removeformat | a11ycheck code table help'
+      });
+    </script>
     <script src="js/cc.js"> </script>
     <script src="https://kit.fontawesome.com/7f32366874.js" crossorigin="anonymous"></script>
     <script src="node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
