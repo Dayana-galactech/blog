@@ -291,7 +291,7 @@
                                                             <?php } ?>
                                                             <?php if (!isset($_SESSION['user']['type'])) { ?>
                                                                 <h6 class="text-danger">Please SignIn to Comment on this Post!</h6>
-                                                                <a href="<?= APP_URL ?>users/login" class="text-danger">Click me to login</a>
+                                                                <a href="<?= APP_URL ?>pages/login" class="text-danger">Click me to login</a>
 
                                                                 <h6 class="text-primary mt-4">Don't have an Account?</br></h6>
                                                                 <a href="<?= APP_URL ?>users/register">Click me to register</a>
@@ -397,7 +397,7 @@
                                                             <?php } ?>
                                                             <?php if (!isset($_SESSION['user']['type'])) { ?>
                                                                 <h6 class="text-danger">Please SignIn to Comment on this Post!</h6>
-                                                                <a href="<?= APP_URL ?>users/login" class="text-danger">Click me to login</a>
+                                                                <a href="<?= APP_URL ?>pages/login" class="text-danger">Click me to login</a>
 
                                                                 <h6 class="text-primary mt-4">Don't have an Account?</br></h6>
                                                                 <a href="<?= APP_URL ?>users/register">Click me to register</a>
@@ -502,7 +502,7 @@
                                                             <?php } ?>
                                                             <?php if (!isset($_SESSION['user']['type'])) { ?>
                                                                 <h6 class="text-danger">Please SignIn to Comment on this Post!</h6>
-                                                                <a href="<?= APP_URL ?>users/login" class="text-danger">Click me to login</a>
+                                                                <a href="<?= APP_URL ?>pages/login" class="text-danger">Click me to login</a>
 
                                                                 <h6 class="text-primary mt-4">Don't have an Account?</br></h6>
                                                                 <a href="<?= APP_URL ?>users/register">Click me to register</a>
@@ -637,7 +637,7 @@
                                                                 <?php } ?>
                                                                 <?php if (!isset($_SESSION['user']['type'])) { ?>
                                                                     <h6 class="text-danger">Please SignIn to Comment on this Post!</h6>
-                                                                    <a href="<?= APP_URL ?>users/login" class="text-danger">Click me to login</a>
+                                                                    <a href="<?= APP_URL ?>pages/login" class="text-danger">Click me to login</a>
 
                                                                     <h6 class="text-primary mt-4">Don't have an Account?</br></h6>
                                                                     <a href="<?= APP_URL ?>users/register">Click me to register</a>
@@ -692,7 +692,7 @@
                         <div class="row">
                             <div class="col-md-6 text-center my-4">
                                 <h5 class="text-primary">Please Sign In </h5>
-                                <a href="<?= APP_URL ?>users/login" class="text-primary">Click me to login</a>
+                                <a href="<?= APP_URL ?>pages/login" class="text-primary">Click me to login</a>
                             </div>
                             <div class="col-md-6 text-center my-4">
                                 <h5 class="text-primary">Don't have an Account?</br></h5>
