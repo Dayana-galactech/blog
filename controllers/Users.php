@@ -76,6 +76,7 @@ class Users extends Controller
             echo"in post" ;
             var_dump("in post");
             $csrf = $_SESSION['csrf_token'];
+            echo $csrf ;
             if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['csrf'])) {
 
                 if (hash_equals($csrf, $_POST['csrf'])) {
