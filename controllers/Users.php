@@ -21,7 +21,7 @@ class Users extends Controller
         ];
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo "inside post";
-            $csrf = $_SESSION['csrf_token'];
+            $csrf = $_SESSION['csrf_register'];
             if (!empty($_POST['username']) && !empty($_POST['email'])  && !empty($_POST['password'])) {
                 if (isset($_POST['csrf']) && hash_equals($csrf, $_POST['csrf'])) {
                     $username = htmlspecialchars($_POST['username']);
@@ -59,7 +59,8 @@ class Users extends Controller
                 echo "Some fields are empty!";
             }
         } else {
-            $this->view('/register', $data);
+            echo"not post";
+            // $this->view('/register', $data);
         }
     }
 

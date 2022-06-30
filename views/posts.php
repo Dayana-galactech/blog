@@ -172,7 +172,7 @@
                                                                                 <a href="?url=/users/login" class="text-danger">Click me to login</a>
 
                                                                                 <h6 class="text-primary mt-4">Don't have an Account?</br></h6>
-                                                                                <a href="?url=/users/register">Click me to register</a>
+                                                                                <a href="?url=/pages/register">Click me to register</a>
 
                                                                             <?php } ?>
                                                                         </div>

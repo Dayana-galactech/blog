@@ -26,7 +26,7 @@
                         }
                         $secret = "secretKey";
                         $csrf = hash_hmac('SHA256', uniqid(microtime()), $secret);
-                        $_SESSION['csrf_token'] = $csrf;
+                        $_SESSION['csrf_register'] = $csrf;
                         ?>
                          <form method="POST" id="register" onsubmit="return fetchcall();">
                             <input type="hidden" name="csrf" value="<?php echo $csrf ?>">
@@ -40,7 +40,7 @@
                             <div class="form-outline mb-4">
                                 <input type="password" name="password" id="password" placeholder="Password" class="form-control form-control-lg" />
                             </div>
-                            <p class="py-3">Already have an account?&nbsp;<a href="?url=/users/login">Sign In</a></p>
+                            <p class="py-3">Already have an account?&nbsp;<a href="?url=/pages/login">Sign In</a></p>
                             <button class="btn btn-primary btn-lg btn-block" type="submit">Register</button>
                         </form>
                     </div>
@@ -48,7 +48,7 @@
             </div>
         </div>
     </div>
-    <script src="js/register.js"> </script>
+    <script src="/js/register.js"> </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 
