@@ -88,8 +88,9 @@ class Users extends Controller
                     ];
 
                     $loggedInUser = $this->userModel->login($data['email'], $data['password']);
-
+                    echo $loggedInUser." , okay";
                     if ($loggedInUser) {
+                        echo "inside loggedinuser";
                         $this->createUserSession($loggedInUser);
                     } else {
                         echo 'Password or email is incorrect. Please try again.';

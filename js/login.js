@@ -1,4 +1,5 @@
 function login() {
+    console.log("inside func");
     var data = new FormData(document.getElementById("login"));
     fetch('?url=/users/login', {
         method: 'POST',
