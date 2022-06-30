@@ -39,7 +39,7 @@
                 <div class="col-4 d-flex justify-content-end align-items-center">
                     <p><?php var_dump($_SESSION['user']['userID']) ?></p>
                     <?php if (!isset($_SESSION['user']['type'])) { ?>
-                        <a class="btn btn-sm btn-outline-secondary" href="<?= APP_URL ?>users/login">Sign in</a>
+                        <a class="btn btn-sm btn-outline-secondary" href="?url=/pages/login">Sign in</a>
                     <?php } else { ?>
                         <a class="btn btn-sm btn-outline-secondary" href="<?= APP_URL ?>users/logout">Sign out</a>
                     <?php } ?>
