@@ -76,6 +76,7 @@ class Users extends Controller
             echo"in post" ;
             var_dump("in post");
             $csrf = $_SESSION['csrf_token'];
+            echo $_SESSION['csrf_token'];
             echo $csrf ;
             if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['csrf'])) {
 
@@ -111,7 +112,7 @@ class Users extends Controller
             // ];
             echo "not post";
         }
-        $this->view('/login', $data);
+        // $this->view('/login', $data);
     }
 
     public function createUserSession($user)
