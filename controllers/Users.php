@@ -126,6 +126,6 @@ class Users extends Controller
             setcookie(session_name(), '', time() - 7000000, '/');
         endif;
         session_destroy();
-        header('location:' . URLROOT . '/?url=/users/login');
+        header('location:' . URLROOT . '/?url=/pages/login');
     }
 }

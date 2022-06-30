@@ -27,7 +27,6 @@
                         $csrf = hash_hmac('SHA256', uniqid(microtime()), $secret);
                         $_SESSION['csrf_login'] = $csrf;
                         ?>
-                        <p><?php echo $_SESSION['csrf_token'] ?></p>
                         <form method="POST" id="login" onsubmit="return login()">
                             <input type="hidden" name="csrf" value="<?php echo $csrf ?>">
                             <div class="form-outline mb-4">
