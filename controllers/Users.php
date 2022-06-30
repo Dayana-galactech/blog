@@ -97,10 +97,11 @@ class Users extends Controller
                 }
             }
         } else {
-            $data = [
-                'email' => '',
-                'password' => '',
-            ];
+            // $data = [
+            //     'email' => '',
+            //     'password' => '',
+            // ];
+            echo "not post";
         }
         $this->view('/login', $data);
     }
