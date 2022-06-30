@@ -294,7 +294,7 @@
                                                                 <a href="<?= APP_URL ?>pages/login" class="text-danger">Click me to login</a>
 
                                                                 <h6 class="text-primary mt-4">Don't have an Account?</br></h6>
-                                                                <a href="<?= APP_URL ?>users/register">Click me to register</a>
+                                                                <a href="<?= APP_URL ?>pages/register">Click me to register</a>
 
                                                             <?php } ?>
                                                         </div>
@@ -400,7 +400,7 @@
                                                                 <a href="<?= APP_URL ?>pages/login" class="text-danger">Click me to login</a>
 
                                                                 <h6 class="text-primary mt-4">Don't have an Account?</br></h6>
-                                                                <a href="<?= APP_URL ?>users/register">Click me to register</a>
+                                                                <a href="<?= APP_URL ?>pages/register">Click me to register</a>
 
                                                             <?php } ?>
                                                         </div>
@@ -505,7 +505,7 @@
                                                                 <a href="<?= APP_URL ?>pages/login" class="text-danger">Click me to login</a>
 
                                                                 <h6 class="text-primary mt-4">Don't have an Account?</br></h6>
-                                                                <a href="<?= APP_URL ?>users/register">Click me to register</a>
+                                                                <a href="<?= APP_URL ?>pages/register">Click me to register</a>
 
                                                             <?php } ?>
                                                         </div>
@@ -640,7 +640,7 @@
                                                                     <a href="<?= APP_URL ?>pages/login" class="text-danger">Click me to login</a>
 
                                                                     <h6 class="text-primary mt-4">Don't have an Account?</br></h6>
-                                                                    <a href="<?= APP_URL ?>users/register">Click me to register</a>
+                                                                    <a href="<?= APP_URL ?>pages/register">Click me to register</a>
 
                                                                 <?php } ?>
                                                             </div>
@@ -696,7 +696,7 @@
                             </div>
                             <div class="col-md-6 text-center my-4">
                                 <h5 class="text-primary">Don't have an Account?</br></h5>
-                                <a href="<?= APP_URL ?>users/register">Click me to register</a>
+                                <a href="<?= APP_URL ?>pages/register">Click me to register</a>
                             </div>
                         </div>
                     <?php } ?>
