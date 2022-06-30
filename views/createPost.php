@@ -134,7 +134,7 @@ if (session_id() == '') {
     </div>
     </div>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/l57m0aiuotugf5nvel03r8aqjckg7mb6plkqpi4bwan39iy9/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
       tinymce.init({
         selector: '#body',
