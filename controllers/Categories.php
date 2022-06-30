@@ -56,6 +56,7 @@ class Categories extends Controller
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $csrf = $_SESSION['csrf_category'];
+            var_dump($csrf);
             if (!empty($_POST['name'])) {
                 if (isset($_POST['csrf']) && hash_equals($csrf, $_POST['csrf'])) {
                     $name = htmlspecialchars($_POST['name']);
@@ -68,6 +69,8 @@ class Categories extends Controller
                     if ($this->userModel->updateCategory($data['categoryID'],$data['userID'],$data['name'])) {
                         echo "updated";
                     }
+                }else{
+                    echo "wrong csrf";
                 }
             }
         }
