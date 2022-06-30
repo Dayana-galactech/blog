@@ -80,7 +80,7 @@ if (session_id() == '') {
                         <?php
                         $secret = "secretKey";
                         $csrf = hash_hmac('SHA256', uniqid(microtime()), $secret);
-                        $_SESSION['csrf_category'] = $csrf;
+                        $_SESSION['csrf_token'] = $csrf;
                         ?>
                         <?php if (isset($_SESSION['user']['type'])) { ?>
                             <section>

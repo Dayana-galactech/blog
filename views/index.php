@@ -21,8 +21,8 @@
         session_start();
     }
     $secret = "secretKey";
-    $csrf_category = hash_hmac('SHA256', uniqid(microtime()), $secret);
-    $_SESSION['csrf_category'] = $csrf_category;
+    $csrf = hash_hmac('SHA256', uniqid(microtime()), $secret);
+    $_SESSION['csrf_token'] = $csrf;
     $csrf_comment = hash_hmac('SHA256', uniqid(microtime()), $secret);
     $_SESSION['csrf_comment'] = $csrf_comment;
     require_once('./controllers/get.php');
@@ -717,7 +717,7 @@
                                 <!-- Modal body -->
                                 <div class="modal-body">
                                     <form method="POST" id="createCategory" onsubmit="return createCategory();">
-                                        <input type="hidden" name="csrf" value="<?php echo $csrf_category ?>">
+                                        <input type="hidden" name="csrf" value="<?php echo $csrf ?>">
                                         <div class="row">
                                             <div class="text-center">
                                                 <div class="my-4 ">
