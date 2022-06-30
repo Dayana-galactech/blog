@@ -97,7 +97,11 @@ class Users extends Controller
 
                         $this->view('/login', $data);
                     }
+                }else {
+                    echo "csrf wrong";
                 }
+            }else{
+                echo "something not set";
             }
         } else {
             // $data = [
