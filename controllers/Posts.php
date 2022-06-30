@@ -41,7 +41,7 @@ class Posts extends Controller
         ];
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $csrf = $_SESSION['csrf_token'];
+            $csrf = $_SESSION['csrf_post'];
             if (!empty($_POST['title']) && !empty($_POST['body']) && !empty($_POST['categoryID'])) {
                 if (isset($_POST['csrf']) && hash_equals($csrf, $_POST['csrf'])) {
                     $image = $_FILES['image']['name'];
@@ -101,7 +101,7 @@ class Posts extends Controller
         ];
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $csrf = $_SESSION['csrf_token'];
+            $csrf = $_SESSION['csrf_post'];
             if (!empty($_POST['title']) && !empty($_POST['body']) && !empty($_POST['categoryID'])) {
                 if (isset($_POST['csrf']) && hash_equals($csrf, $_POST['csrf'])) {
                     $image = $_FILES['image']['name'];

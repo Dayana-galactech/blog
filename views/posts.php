@@ -77,7 +77,7 @@
                         }
                         $secret = "secretKey";
                         $csrf = hash_hmac('SHA256', uniqid(microtime()), $secret);
-                        $_SESSION['csrf_token'] = $csrf;
+                        $_SESSION['csrf_comment'] = $csrf;
                         $categoryID = $_SESSION['post']['categoryID'];
                         $posts = getPostByCategory($categoryID);
                         $categories = getCategoryByID($categoryID); ?>

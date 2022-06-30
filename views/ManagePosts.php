@@ -78,7 +78,7 @@ if (session_id() == '') {
                             <?php
                             $secret = "secretKey";
                             $csrf = hash_hmac('SHA256', uniqid(microtime()), $secret);
-                            $_SESSION['csrf_token'] = $csrf;
+                            $_SESSION['csrf_post'] = $csrf;
 
                             require_once('./controllers/get.php');
                             $posts = getAllPost();
