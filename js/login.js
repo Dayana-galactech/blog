@@ -6,8 +6,8 @@ function login() {
     })
     .then(res => res.text())
     .then((txt) => {
-        console.log(txt);
-    //    window.location = "https://dayana.galactech.cloud";
+        // console.log(txt);
+       window.location = "https://dayana.galactech.cloud";
     });
         
     return false;

@@ -73,7 +73,7 @@ class Users extends Controller
 
         //Check for post
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $csrf = $_SESSION['csrf_token'];
+            $csrf = $_SESSION['csrf_login'];
             if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['csrf'])) {
 
                 if (hash_equals($csrf, $_POST['csrf'])) {
@@ -87,28 +87,26 @@ class Users extends Controller
 
                     $loggedInUser = $this->userModel->login($data['email'], $data['password']);
 
-                    if ($loggedInUser) {
+                    if ($loggedInUser)
                         $this->createUserSession($loggedInUser);
-                    } else {
-                        echo 'Password or email is incorrect. Please try again.';
+                } else {
+                    echo 'Password or email is incorrect. Please try again.';
 
-                        $this->view('/login', $data);
-                    }
+                    $this->view('/login', $data);
                 }
             }
         } else {
-            // $data = [
-            //     'email' => '',
-            //     'password' => '',
-            // ];
-            echo "not post";
+            $data = [
+                'email' => '',
+                'password' => '',
+            ];
         }
-        $this->view('/login', $data);
+        // $this->view('/login', $data);
     }
 
     public function createUserSession($user)
     {
-
+        echo "inside create session";
         $userID = $this->userModel->getID($user->email);
         $_SESSION['user'] = array(
             "email" => $user->email,
@@ -116,7 +114,7 @@ class Users extends Controller
             "type" => $user->type,
             "userID" => "$userID",
         );
-       echo $_SESSION['user']['type'];
+        echo $_SESSION['user']['type'];
         header('location:' . URLROOT);
     }
 
@@ -128,6 +126,6 @@ class Users extends Controller
             setcookie(session_name(), '', time() - 7000000, '/');
         endif;
         session_destroy();
-        header('location:' . URLROOT . '/?url=/users/login');
+        header('location:' . URLROOT . '/?url=/pages/login');
     }
 }
