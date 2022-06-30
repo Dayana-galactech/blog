@@ -73,11 +73,7 @@ class Users extends Controller
 
         //Check for post
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            echo"in post" ;
-            var_dump("in post");
             $csrf = $_SESSION['csrf_login'];
-            echo $_SESSION['csrf_login'];
-            echo $csrf ;
             if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['csrf'])) {
 
                 if (hash_equals($csrf, $_POST['csrf'])) {
@@ -90,34 +86,27 @@ class Users extends Controller
                     ];
 
                     $loggedInUser = $this->userModel->login($data['email'], $data['password']);
-                    echo " okay ";
-                    if ($loggedInUser) {
-                        echo "inside loggedinuser";
-                        $this->createUserSession($loggedInUser);
-                    } else {
-                        echo 'Password or email is incorrect. Please try again.';
 
-                        $this->view('/login', $data);
-                    }
-                }else {
-                    echo "csrf wrong";
+                    if ($loggedInUser)
+                        $this->createUserSession($loggedInUser);
+                } else {
+                    echo 'Password or email is incorrect. Please try again.';
+
+                    $this->view('/login', $data);
                 }
-            }else{
-                echo "something not set";
             }
         } else {
-            // $data = [
-            //     'email' => '',
-            //     'password' => '',
-            // ];
-            echo "not post";
+            $data = [
+                'email' => '',
+                'password' => '',
+            ];
         }
         // $this->view('/login', $data);
     }
 
     public function createUserSession($user)
     {
-echo "inside create session";
+        echo "inside create session";
         $userID = $this->userModel->getID($user->email);
         $_SESSION['user'] = array(
             "email" => $user->email,
@@ -125,7 +114,7 @@ echo "inside create session";
             "type" => $user->type,
             "userID" => "$userID",
         );
-       echo $_SESSION['user']['type'];
+        echo $_SESSION['user']['type'];
         header('location:' . URLROOT);
     }
 

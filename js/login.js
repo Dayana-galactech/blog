@@ -1,5 +1,4 @@
 function login() {
-    console.log("inside func");
     var data = new FormData(document.getElementById("login"));
     fetch('?url=/users/login', {
         method: 'POST',
@@ -7,8 +6,8 @@ function login() {
     })
     .then(res => res.text())
     .then((txt) => {
-        console.log(txt);
-    //    window.location = "https://dayana.galactech.cloud";
+        // console.log(txt);
+       window.location = "https://dayana.galactech.cloud";
     });
         
     return false;
