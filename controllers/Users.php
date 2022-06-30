@@ -90,7 +90,7 @@ class Users extends Controller
                     ];
 
                     $loggedInUser = $this->userModel->login($data['email'], $data['password']);
-                    echo $loggedInUser." , okay";
+                    echo " okay ";
                     if ($loggedInUser) {
                         echo "inside loggedinuser";
                         $this->createUserSession($loggedInUser);
@@ -117,7 +117,7 @@ class Users extends Controller
 
     public function createUserSession($user)
     {
-
+echo "inside create session";
         $userID = $this->userModel->getID($user->email);
         $_SESSION['user'] = array(
             "email" => $user->email,
