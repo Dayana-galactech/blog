@@ -36,7 +36,7 @@
                             <div class="form-outline mb-4">
                                 <input type="password" name="password" id="password" placeholder="Password" class="form-control form-control-lg" />
                             </div>
-                            <p class="py-3">No account?&nbsp;<a href="?url=/users/register">Create One </a></p>
+                            <p class="py-3">No account?&nbsp;<a href="?url=/pages/register">Create One </a></p>
                             <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
                         </form>
                     </div>

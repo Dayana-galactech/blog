@@ -26,7 +26,7 @@
                         }
                         $secret = "secretKey";
                         $csrf = hash_hmac('SHA256', uniqid(microtime()), $secret);
-                        $_SESSION['csrf_token'] = $csrf;
+                        $_SESSION['csrf_register'] = $csrf;
                         ?>
                          <form method="POST" id="register" onsubmit="return fetchcall();">
                             <input type="hidden" name="csrf" value="<?php echo $csrf ?>">
@@ -48,7 +48,7 @@
             </div>
         </div>
     </div>
-    <script src="js/register.js"> </script>
+    <script src="/js/register.js"> </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 
