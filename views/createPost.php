@@ -153,7 +153,7 @@ if (session_id() == '') {
     data.append("csrf", document.getElementById("csrf").value);
     data.append("categoryID", document.getElementById("categoryID").value);
     data.append("title", document.getElementById("title").value);
-    data.append("image", document.getElementById("image").value);
+    data.append("image", document.getElementById("image").files[0]);
     data.append("published", document.getElementById("published").value);
     data.append("body", tinyMCE.get('body').getContent());
     fetch('?url=/posts/createPost', {
