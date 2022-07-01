@@ -100,7 +100,7 @@ if (session_id() == '') {
                                             <?php endforeach ?>
                                         </select>
                                     </div>
-                                    <div class="col mt-5"> <input class="select" type="text" name="title" id="text" placeholder="Title"></div>
+                                    <div class="col mt-5"> <input class="select" type="text" name="title" id="title" placeholder="Title"></div>
                                     <div class="col mt-5 fw-bold fs-5"> <label>Featured image:</label></div>
                                     <div class="col mt-5 drag">
                                         <div class="drop-zone">
@@ -152,7 +152,7 @@ if (session_id() == '') {
     // var data = new FormData(document.getElementById("createPost"));
     data.append("csrf", document.getElementById("csrf").value);
     data.append("categoryID", document.getElementById("categoryID").value);
-    data.append("text", document.getElementById("text").value);
+    data.append("title", document.getElementById("title").value);
     data.append("image", document.getElementById("image").value);
     data.append("published", document.getElementById("published").value);
     data.append("body", tinyMCE.get('body').getContent());
