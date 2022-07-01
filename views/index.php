@@ -22,7 +22,7 @@
     }
     $secret = "secretKey";
     $csrf = hash_hmac('SHA256', uniqid(microtime()), $secret);
-    $_SESSION['tokens'] = $csrf;
+    $_SESSION['comment'] = $csrf;
     require_once('./controllers/get.php');
     $posts = getPost();
     if (isset($_SESSION['user']['type'])) {

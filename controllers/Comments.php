@@ -28,7 +28,7 @@ class Comments extends Controller
         ];
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $csrf = $_SESSION['tokens'];
+            $csrf = $_SESSION['comment'];
             
             if (!empty($_POST['body']) && !empty($_POST['postID'])) {
 
