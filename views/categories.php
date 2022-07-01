@@ -80,7 +80,7 @@ if (session_id() == '') {
                         <?php
                         $secret = "secretKey";
                         $csrf = hash_hmac('SHA256', uniqid(microtime()), $secret);
-                        $_SESSION['csrf_category'] = $csrf;
+                        $_SESSION['csrf_createcCategory'] = $csrf;
                         ?>
                         <?php if (isset($_SESSION['user']['type'])) { ?>
                             <section>
@@ -102,8 +102,8 @@ if (session_id() == '') {
                                                 <!-- Modal body -->
                                                 <div class="modal-body">
                                                     <form method="POST" id="createCategory" onsubmit="return createCategory();">
-                                                    <p><?php echo $_SESSION['csrf_category'] ?></p>
-                                                        <input type="hidden" name="csrf" value="<?php echo $_SESSION['csrf_category'] ?>">
+                                                    <p><?php echo $_SESSION['csrf_createCategory'] ?></p>
+                                                        <input type="hidden" name="csrf" value="<?php echo $_SESSION['csrf_createCategory'] ?>">
                                                         <div class="row">
                                                             <div class="text-center">
                                                                 <div class="my-4 ">

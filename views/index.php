@@ -22,7 +22,7 @@
     }
     $secret = "secretKey";
     $csrf = hash_hmac('SHA256', uniqid(microtime()), $secret);
-    $_SESSION['csrf_category'] = $csrf;
+    $_SESSION['csrf_createCategory'] = $csrf;
     $csrf_comment = hash_hmac('SHA256', uniqid(microtime()), $secret);
     $_SESSION['csrf_comment'] = $csrf_comment;
     require_once('./controllers/get.php');
