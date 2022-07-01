@@ -155,7 +155,7 @@ if (session_id() == '') {
     data.append("text", document.getElementById("text").value);
     data.append("image", document.getElementById("image").value);
     data.append("body", document.getElementById("body").value);
-    data.append("csrf", tinyMCE.get('body').getContent());
+    data.append("csrf", document.getElementById("body").tinyMCE.activeEditor.getContent());
     fetch('?url=/posts/createPost', {
         method: 'POST',
         body: data,
