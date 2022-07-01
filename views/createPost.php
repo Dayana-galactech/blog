@@ -111,7 +111,7 @@ if (session_id() == '') {
                                     <div class="col mt-5 fw-bold fs-5"> <label>Caption:</label></div>
                                     <div class="col mt-5"><textarea placeholder="body" name="body" id="body" class="caption"></textarea></div>
                                     <div class="col mt-5 fs-5"> <label for="published">Publish: &nbsp;
-                                            <input type="checkbox" value="1" name="published">&nbsp;
+                                            <input type="checkbox" value="1" name="published" id="published">&nbsp;
                                         </label>
                                     </div>
                                     <hr class="bg-danger mt-5 border-1 border-top border-dark">
@@ -154,8 +154,8 @@ if (session_id() == '') {
     data.append("categoryID", document.getElementById("categoryID").value);
     data.append("text", document.getElementById("text").value);
     data.append("image", document.getElementById("image").value);
-    data.append("body", document.getElementById("body").value);
-    data.append("csrf", document.getElementById("body").tinyMCE.get('body').getContent());
+    data.append("published", document.getElementById("published").value);
+    data.append("body", tinyMCE.get('body').getContent());
     fetch('?url=/posts/createPost', {
         method: 'POST',
         body: data,
