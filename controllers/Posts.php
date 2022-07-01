@@ -42,47 +42,51 @@ class Posts extends Controller
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $csrf = $_SESSION['csrf_post'];
-            if (!empty($_POST['title']) && !empty($_POST['body']) && !empty($_POST['categoryID'])) {
-                if (isset($_POST['csrf']) && hash_equals($csrf, $_POST['csrf'])) {
-                    $image = $_FILES['image']['name'];
-                    $random = uniqid();
-                    if (!empty($image)) {
-                        $target = "./images/" . "" . $random . "" . basename($image);
-                        if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
-                            $title = htmlspecialchars($_POST['title']);
-                            $body = htmlspecialchars($_POST['body']);
-                            if (isset($_POST['published'])) {
-                                $published = $_POST['published'];
+            if (!empty($_POST['body'])) {
+                if (!empty($_POST['title']) &&  !empty($_POST['categoryID'])) {
+                    if (isset($_POST['csrf']) && hash_equals($csrf, $_POST['csrf'])) {
+                        $image = $_FILES['image']['name'];
+                        $random = uniqid();
+                        if (!empty($image)) {
+                            $target = "./images/" . "" . $random . "" . basename($image);
+                            if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+                                $title = htmlspecialchars($_POST['title']);
+                                $body = htmlspecialchars($_POST['body']);
+                                if (isset($_POST['published'])) {
+                                    $published = $_POST['published'];
+                                } else {
+                                    $published = 0;
+                                }
+                                $data = [
+                                    'userID' => $_SESSION['user']['userID'],
+                                    'title' => $title,
+                                    'image' => basename($target),
+                                    'body' => $body,
+                                    'published' => $published
+                                ];
+                                $inserted_post_id = $this->userModel->createPost($data);
+                                echo "created";
+                                var_dump($inserted_post_id);
+                                $data2 = [
+                                    'postID' => $inserted_post_id,
+                                    'categoryID' => $_POST['categoryID'],
+                                ];
+                                $this->postcategory->postcategory($data2['postID'], $data2['categoryID']);
+                                header('Location:' . URLROOT);
                             } else {
-                                $published = 0;
+                                echo "failed to upload image";
                             }
-                            $data = [
-                                'userID' => $_SESSION['user']['userID'],
-                                'title' => $title,
-                                'image' => basename($target),
-                                'body' => $body,
-                                'published' => $published
-                            ];
-                            $inserted_post_id = $this->userModel->createPost($data);
-                            echo "created";
-                            var_dump($inserted_post_id);
-                            $data2 = [
-                                'postID' => $inserted_post_id,
-                                'categoryID' => $_POST['categoryID'],
-                            ];
-                            $this->postcategory->postcategory($data2['postID'], $data2['categoryID']);
-                            header('Location:' . URLROOT);
                         } else {
-                            echo "failed to upload image";
+                            echo "image field empty";
                         }
                     } else {
-                        echo "image field empty";
+                        echo "wrong csrf";
                     }
                 } else {
-                    echo "wrong csrf";
+                    echo "title is empty";
                 }
-            } else {
-                echo "title or body empty";
+            }else{
+                echo "body is empty";
             }
         } else {
             echo "not post request";
@@ -214,7 +218,7 @@ class Posts extends Controller
                     'post2ID' => $_POST['post2ID'],
                     'post3ID' => $_POST['post3ID'],
                 ];
-                $this->changeone->add($data['post1ID'],$data['post2ID'],$data['post3ID']);
+                $this->changeone->add($data['post1ID'], $data['post2ID'], $data['post3ID']);
                 echo "created";
                 header('Location:' . URLROOT);
             } else {
@@ -223,5 +227,5 @@ class Posts extends Controller
         } else {
             echo "not post request";
         }
-    } 
+    }
 }
