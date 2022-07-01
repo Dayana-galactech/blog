@@ -155,7 +155,7 @@ if (session_id() == '') {
     data.append("title", document.getElementById("title").value);
     data.append("image", document.getElementById("image").files[0]);
     data.append("published", document.getElementById("published").value);
-    data.append("body", tinyMCE.get('body').getContent({ format: "text" }));
+    data.append("body", tinyMCE.get('body').getContent());
     fetch('?url=/posts/createPost', {
         method: 'POST',
         body: data,

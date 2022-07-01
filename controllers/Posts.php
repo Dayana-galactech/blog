@@ -51,7 +51,7 @@ class Posts extends Controller
                             $target = "./images/" . "" . $random . "" . basename($image);
                             if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
                                 $title = htmlspecialchars($_POST['title']);
-                                $body = htmlspecialchars($_POST['body']);
+                                $body = $_POST['body'];
                                 if (isset($_POST['published'])) {
                                     $published = $_POST['published'];
                                 } else {
