@@ -133,7 +133,7 @@ function cc(postID) {
         .then(res => res.text())
         .then((txt) => {
             console.log(txt);
-            // window.location = window.location.href;
+            window.location = window.location.href;
         })
         ;
 

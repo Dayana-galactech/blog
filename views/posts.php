@@ -117,7 +117,6 @@
                                                             <div class="row">
                                                                 <image class="my-3" src="images/<?php echo $post['image'] ?>"></image>
                                                                 <p><?php echo $post['body'] ?></p>
-                                                                <p><?php echo $csrf ?></p>
                                                             </div>
                                                             <div class="row">
                                                                 <p class="fs-6 fw-bold text-start fst-italic">Author:&nbsp;<?php echo $author['username'] ?>&nbsp;&nbsp;&nbsp; Date:&nbsp;<?php echo $post['createdAt'] ?></p>
