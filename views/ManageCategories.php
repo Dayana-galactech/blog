@@ -75,10 +75,8 @@
                                 session_start();
                             }
                             $secret = "secretKey";
-                            $csrf_create = hash_hmac('SHA256', uniqid(microtime()), $secret);
-                            $_SESSION['csrf_createCategory'] = $csrf_create;
-                            $csrf_update = hash_hmac('SHA256', uniqid(microtime()), $secret);
-                            $_SESSION['csrf_updateCategory'] = $csrf_update;
+                            $csrf= hash_hmac('SHA256', uniqid(microtime()), $secret);
+                            $_SESSION['token'] = $csrf;
                             ?>
                             <section>
                                 <div class="container text-center">
@@ -99,7 +97,7 @@
                                                 <!-- Modal body -->
                                                 <div class="modal-body">
                                                     <form method="POST" id="createCategory" onsubmit="return createCategory();">
-                                                        <input type="hidden" name="csrf" value="<?php echo $csrf_create ?>">
+                                                        <input type="hidden" name="csrf" value="<?php echo $csrf ?>">
                                                         <div class="row">
                                                             <div class="text-center">
                                                                 <div class="my-4 ">
@@ -162,7 +160,7 @@
                                                                 <!-- Modal body -->
                                                                 <div class="modal-body" id="<?php echo $category['categoryID'] ?>">
                                                                     <form method="POST" id="updateCategory<?php echo $category['categoryID'] ?>" onsubmit="return updateCategory(<?php echo $category['categoryID'] ?>);">
-                                                                        <input type="hidden" name="csrf" value="<?php echo $csrf_update ?>">
+                                                                        <input type="hidden" name="csrf" value="<?php echo $csrf ?>">
                                                                         <div class="row">
                                                                             <div class="text-center">
                                                                                 <div class="my-4 ">
@@ -234,7 +232,7 @@
                                                                     <!-- Modal body -->
                                                                     <div class="modal-body" id="<?php echo $user['categoryID'] ?>">
                                                                         <form method="POST" id="updateCategory<?php echo $user['categoryID'] ?>" onsubmit="return updateCategory(<?php echo $user['categoryID'] ?>);">
-                                                                            <input type="hidden" name="csrf" value="<?php echo $csrf_update ?>">
+                                                                            <input type="hidden" name="csrf" value="<?php echo $csrf ?>">
                                                                             <div class="row">
                                                                                 <div class="text-center">
                                                                                     <div class="my-4 ">
