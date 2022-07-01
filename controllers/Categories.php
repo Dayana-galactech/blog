@@ -25,7 +25,7 @@ class Categories extends Controller
         ];
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $csrf = $_SESSION['tokens'];
+            $csrf = $_SESSION['token'];
             var_dump($csrf);
             var_dump($_SESSION['tokens']);
             if (!empty($_POST['name'])) {
