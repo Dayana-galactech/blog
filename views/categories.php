@@ -102,6 +102,7 @@ if (session_id() == '') {
                                                 <!-- Modal body -->
                                                 <div class="modal-body">
                                                     <form method="POST" id="createCategory" onsubmit="return createCategory();">
+                                                    <p><?php echo $_SESSION['csrf_category'] ?></p>
                                                         <input type="hidden" name="csrf" value="<?php echo $_SESSION['csrf_category'] ?>">
                                                         <div class="row">
                                                             <div class="text-center">
