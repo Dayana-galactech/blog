@@ -109,7 +109,7 @@ if (session_id() == '') {
                                         </div>
                                     </div>
                                     <div class="col mt-5 fw-bold fs-5"> <label>Caption:</label></div>
-                                    <div class="col mt-5"><textarea placeholder="body" name="body" id="body" class="caption"></textarea></div>
+                                    <div class="col mt-5"><textarea placeholder="body" name="body" class="caption"></textarea></div>
                                     <div class="col mt-5 fs-5"> <label for="published">Publish: &nbsp;
                                             <input type="checkbox" value="1" name="published">&nbsp;
                                         </label>
