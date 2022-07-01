@@ -22,9 +22,7 @@
     }
     $secret = "secretKey";
     $csrf = hash_hmac('SHA256', uniqid(microtime()), $secret);
-    $_SESSION['token'] = $csrf;
-    $csrf_comment = hash_hmac('SHA256', uniqid(microtime()), $secret);
-    $_SESSION['csrf_comment'] = $csrf_comment;
+    $_SESSION['tokens'] = $csrf;
     require_once('./controllers/get.php');
     $posts = getPost();
     if (isset($_SESSION['user']['type'])) {
@@ -281,7 +279,7 @@
                                                                     <img class="rounded-circle shadow-1-strong me-3" src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp" alt="avatar" width="40" height="40" />
                                                                     <div class="form-outline w-100" id="<?php echo $post4['postID'] ?>">
                                                                         <form method="POST" id="cc<?php echo $byPost4ID['postID'] ?>" onsubmit="return cc(<?php echo $byPost4ID['postID'] ?>);">
-                                                                            <input type="hidden" name="csrf" value="<?php echo $csrf_comment ?>">
+                                                                            <input type="hidden" name="csrf" value="<?php echo $csrf?>">
                                                                             <input type="hidden" name="postID" value="<?php echo $byPost4ID['postID']; ?>">
                                                                             <textarea class="form-control" placeholder="body" name="body" id="body" rows="4" style="background: #fff;"></textarea>
                                                                     </div>
@@ -387,7 +385,7 @@
                                                                     <img class="rounded-circle shadow-1-strong me-3" src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp" alt="avatar" width="40" height="40" />
                                                                     <div class="form-outline w-100" id="<?php echo $post5['postID'] ?>">
                                                                         <form method="POST" id="cc<?php echo $byPost5ID['postID'] ?>" onsubmit="return cc(<?php echo $byPost5ID['postID'] ?>);">
-                                                                            <input type="hidden" name="csrf" value="<?php echo $csrf_comment ?>">
+                                                                            <input type="hidden" name="csrf" value="<?php echo $csrf ?>">
                                                                             <input type="hidden" name="postID" value="<?php echo $byPost5ID['postID']; ?>">
                                                                             <textarea class="form-control" placeholder="body" name="body" id="body" rows="4" style="background: #fff;"></textarea>
                                                                     </div>
@@ -492,7 +490,7 @@
                                                                     <img class="rounded-circle shadow-1-strong me-3" src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp" alt="avatar" width="40" height="40" />
                                                                     <div class="form-outline w-100" id="<?php echo $post6['postID'] ?>">
                                                                         <form method="POST" id="cc<?php echo $byPost6ID['postID'] ?>" onsubmit="return cc(<?php echo $byPost5ID['postID'] ?>);">
-                                                                            <input type="hidden" name="csrf" value="<?php echo $csrf_comment ?>">
+                                                                            <input type="hidden" name="csrf" value="<?php echo $csrf ?>">
                                                                             <input type="hidden" name="postID" value="<?php echo $byPost6ID['postID']; ?>">
                                                                             <textarea class="form-control" placeholder="body" name="body" id="body" rows="4" style="background: #fff;"></textarea>
                                                                     </div>
@@ -627,7 +625,7 @@
                                                                         <img class="rounded-circle shadow-1-strong me-3" src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp" alt="avatar" width="40" height="40" />
                                                                         <div class="form-outline w-100" id="<?php echo $post['postID'] ?>">
                                                                             <form method="POST" id="cc<?php echo $byCategoryID['postID'] ?>" onsubmit="return cc(<?php echo $byCategoryID['postID'] ?>);">
-                                                                                <input type="hidden" name="csrf" value="<?php echo $csrf_comment ?>">
+                                                                                <input type="hidden" name="csrf" value="<?php echo $csrf ?>">
                                                                                 <input type="hidden" name="postID" value="<?php echo $byCategoryID['postID']; ?>">
                                                                                 <textarea class="form-control" placeholder="body" name="body" id="body" rows="4" style="background: #fff;"></textarea>
                                                                         </div>

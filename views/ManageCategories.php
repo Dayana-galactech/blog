@@ -76,7 +76,7 @@
                             }
                             $secret = "secretKey";
                             $csrf= hash_hmac('SHA256', uniqid(microtime()), $secret);
-                            $_SESSION['token'] = $csrf;
+                            $_SESSION['tokens'] = $csrf;
                             ?>
                             <section>
                                 <div class="container text-center">
