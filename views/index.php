@@ -715,7 +715,7 @@
                                 <!-- Modal body -->
                                 <div class="modal-body">
                                     <form method="POST" id="createCategory" onsubmit="return createCategory();">
-                                        <input type="hidden" name="csrf" value="<?php echo $csrf ?>">
+                                        <input type="hidden" name="csrf" value="">
                                         <div class="row">
                                             <div class="text-center">
                                                 <div class="my-4 ">
