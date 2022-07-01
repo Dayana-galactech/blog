@@ -99,9 +99,9 @@ if (session_id() == '') {
                                 <!-- Modal body -->
                                 <div class="modal-body text-center" id="<?php echo $post['postID'] ?>">
                                     <form method="POST" id="updatePost<?php echo $post['postID'] ?>" onsubmit="return updatePost(<?php echo $post['postID'] ?>);">
-                                        <input type="hidden" name="csrf" value="<?php echo $csrf ?>">
+                                        <input type="hidden" name="csrf" id="csrf" value="<?php echo $csrf ?>">
                                         <div class="col-mt-5">
-                                            <select class="select" name="categoryID">
+                                            <select class="select" id="categoryID" name="categoryID">
                                                 <!-- <option value="" selected disabled>Choose Category</option> -->
                                                 <?php foreach ($categories as $category) :
                                                     $select = getPostCategory($post['postID']);
@@ -121,16 +121,16 @@ if (session_id() == '') {
                                         <div class="col mt-3 drag">
                                             <div class="drop-zone">
                                                 <span class="drop-zone__prompt pt-3">Browse Image </br></br> OR </br></br> Drag and Drop Here </br></br> <i class="fa-solid fa-up-down-left-right pb-3"></i></span>
-                                                <input type="file" name="image" class="drop-zone__input">
+                                                <input type="file" name="image" id="image" class="drop-zone__input">
                                             </div>
                                         </div>
                                         <div class="col mt-5 fw-bold fs-5"> <label>Caption:</label></div>
                                         <div class="col mt-3"><textarea placeholder="body" name="body" id="body" class="caption"><?php echo $post['body'] ?></textarea>
                                             <div class="col my-3 fs-6"> <label for="published">Publish: &nbsp;
                                                     <?php if ($post['published'] == 1) { ?>
-                                                        <input type="checkbox" name="published" checked>&nbsp;
+                                                        <input type="checkbox" name="published" id="published" checked>&nbsp;
                                                     <?php } else { ?>
-                                                        <input type="checkbox" name="published">&nbsp;
+                                                        <input type="checkbox" name="published" id="published">&nbsp;
                                                     <?php } ?>
                                                 </label>
                                             </div>
@@ -157,6 +157,41 @@ if (session_id() == '') {
     </div>
     </div>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.tiny.cloud/1/l57m0aiuotugf5nvel03r8aqjckg7mb6plkqpi4bwan39iy9/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+      tinymce.init({
+        selector: '#body',
+        plugins: [
+          'a11ychecker','advlist','advcode','advtable','autolink','checklist','export',
+          'lists','link','charmap','preview','anchor','searchreplace','visualblocks',
+          'powerpaste','fullscreen','formatpainter','insertdatetime','table','help','wordcount'
+        ],
+        toolbar: 'undo redo | formatpainter casechange blocks | bold italic backcolor | ' +
+          'alignleft aligncenter alignright alignjustify | ' +
+          'bullist numlist checklist outdent indent | removeformat | a11ycheck code table help'
+      });
+      function updatePost() {
+    var data = new FormData;
+    data.append("csrf", document.getElementById("csrf").value);
+    data.append("categoryID", document.getElementById("categoryID").value);
+    data.append("title", document.getElementById("title").value);
+    data.append("postID", document.getElementById("postID").value);
+    data.append("image", document.getElementById("image").files[0]);
+    data.append("published", document.getElementById("published").value);
+    data.append("body", tinyMCE.get('body').getContent());
+    fetch('?url=/posts/updatePost', {
+        method: 'POST',
+        body: data,
+    })
+        .then(res => res.text())
+        .then((txt) => {
+            console.log(txt);
+            window.location = "?url=/pages/ManagePosts";
+        });
+
+    return false;
+}
+    </script>
     <script src="js/cc.js"> </script>
     <script src="https://kit.fontawesome.com/7f32366874.js" crossorigin="anonymous"></script>
     <script src="node_modules/owl.carousel/dist/owl.carousel.min.js"></script>

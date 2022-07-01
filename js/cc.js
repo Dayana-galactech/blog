@@ -268,17 +268,17 @@ function updateCategory(categoryID) {
 
     return false;
 }
-function updatePost(postID) {
-    var data = new FormData(document.getElementById("updatePost" + postID));
-    fetch('?url=/posts/updatePost', {
-        method: 'POST',
-        body: data,
-    })
-        .then(res => res.text())
-        .then((txt) => {
-            console.log(txt);
-            window.location = "?url=/pages/ManagePosts";
-        });
+// function updatePost(postID) {
+//     var data = new FormData(document.getElementById("updatePost" + postID));
+    // fetch('?url=/posts/updatePost', {
+    //     method: 'POST',
+    //     body: data,
+    // })
+    //     .then(res => res.text())
+    //     .then((txt) => {
+    //         console.log(txt);
+    //         window.location = "?url=/pages/ManagePosts";
+    //     });
 
-    return false;
-}
+//     return false;
+// }
