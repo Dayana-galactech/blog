@@ -11,7 +11,7 @@ if (session_id() == '') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link href="css/main.min.css?ts=<?= time() ?>" rel="stylesheet">
-    <title>Upate Posts</title>
+    <title>Update Posts</title>
 </head>
 
 <body>
