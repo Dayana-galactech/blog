@@ -76,7 +76,7 @@
                         }
                         $secret = "secretKey";
                         $csrf = hash_hmac('SHA256', uniqid(microtime()), $secret);
-                        $_SESSION['csrf_comment'] = $csrf;
+                        $_SESSION['tokens'] = $csrf;
                         $userID = $_SESSION['user']['userID'];
                         $posts = getPostByYou($userID);
                         ?>
