@@ -162,8 +162,8 @@ if (session_id() == '') {
     })
         .then(res => res.text())
         .then((txt) => {
-            console.log(txt);
-            // window.location = "?url=/pages/ManagePosts";
+            // console.log(txt);
+            window.location = "?url=/pages/ManagePosts";
         });
 
     return false;

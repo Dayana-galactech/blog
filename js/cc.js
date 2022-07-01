@@ -132,7 +132,7 @@ function cc(postID) {
     })
         .then(res => res.text())
         .then((txt) => {
-            console.log(txt);
+            // console.log(txt);
             window.location = window.location.href;
         })
         ;
@@ -147,8 +147,8 @@ function createCategory() {
     })
         .then(res => res.text())
         .then((txt) => {
-            console.log(txt);
-            // window.location = "?url=/pages/ManageCategories";
+            // console.log(txt);
+            window.location = "?url=/pages/ManageCategories";
         });
 
     return false;

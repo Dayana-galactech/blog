@@ -22,7 +22,7 @@
     }
     $secret = "secretKey";
     $csrf = hash_hmac('SHA256', uniqid(microtime()), $secret);
-    $_SESSION['comment'] = $csrf;
+    $_SESSION['tokens'] = $csrf;
     require_once('./controllers/get.php');
     $posts = getPost();
     if (isset($_SESSION['user']['type'])) {
@@ -715,7 +715,7 @@
                                 <!-- Modal body -->
                                 <div class="modal-body">
                                     <form method="POST" id="createCategory" onsubmit="return createCategory();">
-                                        <input type="hidden" name="csrf" value="">
+                                        <input type="hidden" name="csrf" value="<?php echo $csrf ?>">
                                         <div class="row">
                                             <div class="text-center">
                                                 <div class="my-4 ">
