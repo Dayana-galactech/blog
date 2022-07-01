@@ -41,7 +41,7 @@
                     <?php if (!isset($_SESSION['user']['type'])) { ?>
                         <a class="btn btn-sm btn-outline-secondary" href="?url=/pages/login">Sign in</a>
                     <?php } else { ?>
-                        <a class="btn btn-sm btn-outline-secondary" href="<?= APP_URL ?>users/logout">Sign out</a>
+                        <a class="btn btn-sm btn-outline-secondary" href="?url=/users/logout">Sign out</a>
                     <?php } ?>
                 </div>
             </div>
@@ -291,10 +291,10 @@
                                                             <?php } ?>
                                                             <?php if (!isset($_SESSION['user']['type'])) { ?>
                                                                 <h6 class="text-danger">Please SignIn to Comment on this Post!</h6>
-                                                                <a href="<?= APP_URL ?>pages/login" class="text-danger">Click me to login</a>
+                                                                <a href="?url=/pages/login" class="text-danger">Click me to login</a>
 
                                                                 <h6 class="text-primary mt-4">Don't have an Account?</br></h6>
-                                                                <a href="<?= APP_URL ?>pages/register">Click me to register</a>
+                                                                <a href="?url=/pages/register">Click me to register</a>
 
                                                             <?php } ?>
                                                         </div>
@@ -397,10 +397,10 @@
                                                             <?php } ?>
                                                             <?php if (!isset($_SESSION['user']['type'])) { ?>
                                                                 <h6 class="text-danger">Please SignIn to Comment on this Post!</h6>
-                                                                <a href="<?= APP_URL ?>pages/login" class="text-danger">Click me to login</a>
+                                                                <a href="?url=/pages/login" class="text-danger">Click me to login</a>
 
                                                                 <h6 class="text-primary mt-4">Don't have an Account?</br></h6>
-                                                                <a href="<?= APP_URL ?>pages/register">Click me to register</a>
+                                                                <a href="?url=/pages/register">Click me to register</a>
 
                                                             <?php } ?>
                                                         </div>
@@ -502,10 +502,10 @@
                                                             <?php } ?>
                                                             <?php if (!isset($_SESSION['user']['type'])) { ?>
                                                                 <h6 class="text-danger">Please SignIn to Comment on this Post!</h6>
-                                                                <a href="<?= APP_URL ?>pages/login" class="text-danger">Click me to login</a>
+                                                                <a href="?url=/pages/login" class="text-danger">Click me to login</a>
 
                                                                 <h6 class="text-primary mt-4">Don't have an Account?</br></h6>
-                                                                <a href="<?= APP_URL ?>pages/register">Click me to register</a>
+                                                                <a href="?url=/pages/register">Click me to register</a>
 
                                                             <?php } ?>
                                                         </div>
@@ -534,7 +534,7 @@
             <div class="owl-two owl-carousel owl-theme">
                 <?php foreach ($posts as $post) : ?>
                     <div class="item">
-                        <a href="<?= APP_URL ?>pages/categories"> <img src="images/<?php echo $post['image'] ?>" class="img-thumbnail" alt="<?php $post['title'] ?>"></a>
+                        <a href="?url=/pages/categories"> <img src="images/<?php echo $post['image'] ?>" class="img-thumbnail" alt="<?php $post['title'] ?>"></a>
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -637,10 +637,10 @@
                                                                 <?php } ?>
                                                                 <?php if (!isset($_SESSION['user']['type'])) { ?>
                                                                     <h6 class="text-danger">Please SignIn to Comment on this Post!</h6>
-                                                                    <a href="<?= APP_URL ?>pages/login" class="text-danger">Click me to login</a>
+                                                                    <a href="?url=/pages/login" class="text-danger">Click me to login</a>
 
                                                                     <h6 class="text-primary mt-4">Don't have an Account?</br></h6>
-                                                                    <a href="<?= APP_URL ?>pages/register">Click me to register</a>
+                                                                    <a href="?url=/pages/register">Click me to register</a>
 
                                                                 <?php } ?>
                                                             </div>
@@ -681,7 +681,7 @@
                                 </button>
                             </div>
                             <div class="col-lg-6 text-center">
-                                <a href="<?= APP_URL ?>pages/createPost" class="bi bi-plus-circle-fill btn btn-primary my-5 ">
+                                <a href="?url=/pages/createPost" class="bi bi-plus-circle-fill btn btn-primary my-5 ">
                                     Create New Post
                                 </a>
                             </div>
@@ -692,11 +692,11 @@
                         <div class="row">
                             <div class="col-md-6 text-center my-4">
                                 <h5 class="text-primary">Please Sign In </h5>
-                                <a href="<?= APP_URL ?>pages/login" class="text-primary">Click me to login</a>
+                                <a href="?url=/pages/login" class="text-primary">Click me to login</a>
                             </div>
                             <div class="col-md-6 text-center my-4">
                                 <h5 class="text-primary">Don't have an Account?</br></h5>
-                                <a href="<?= APP_URL ?>pages/register">Click me to register</a>
+                                <a href="?url=/pages/register">Click me to register</a>
                             </div>
                         </div>
                     <?php } ?>
@@ -752,12 +752,12 @@
                     <div class="p-4">
                         <h4 class="fst-italic">Articles</h4>
                         <ol class="list-unstyled mb-0">
-                            <li><a href="<?= APP_URL ?>pages/categories">All Categories</a></li>
+                            <li><a href="?url=/pages/categories">All Categories</a></li>
                             <?php if (isset($_SESSION['user']['type'])) { ?>
-                                <li><a href="<?= APP_URL ?>pages/yourArticles">Your Articles</a></li>
+                                <li><a href="?url=/pages/yourArticles">Your Articles</a></li>
 
-                                <li><a href="<?= APP_URL ?>pages/ManageCategories">Manage Categories</a></li>
-                                <li><a href="<?= APP_URL ?>pages/ManagePosts">Manage Posts</a></li>
+                                <li><a href="?url=/pages/ManageCategories">Manage Categories</a></li>
+                                <li><a href="?url=/pages/ManagePosts">Manage Posts</a></li>
                             <?php } ?>
                         </ol>
                     </div>
