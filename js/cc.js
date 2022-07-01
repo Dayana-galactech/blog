@@ -212,20 +212,20 @@ function searchPosts(ID) {
     return false;
 }
 
-function createPosts() {
-    var data = new FormData(document.getElementById("createPost"));
-    fetch('?url=/posts/createPost', {
-        method: 'POST',
-        body: data,
-    })
-        .then(res => res.text())
-        .then((txt) => {
-            console.log(txt);
-            // window.location = "?url=/pages/ManagePosts";
-        });
+// function createPosts() {
+//     var data = new FormData(document.getElementById("createPost"));
+//     fetch('?url=/posts/createPost', {
+//         method: 'POST',
+//         body: data,
+//     })
+//         .then(res => res.text())
+//         .then((txt) => {
+//             console.log(txt);
+//             // window.location = "?url=/pages/ManagePosts";
+//         });
 
-    return false;
-}
+//     return false;
+// }
 function deletecategory(categoryID) {
     var data = new FormData(document.getElementById("deleteRow" + categoryID));
     fetch('?url=/categories/deleteCategory', {

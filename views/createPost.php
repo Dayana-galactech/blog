@@ -89,9 +89,9 @@ if (session_id() == '') {
                             </div>
                             <div class="modal-body mx-md-5 px-md-5">
                                 <form method="POST" id="createPost" onsubmit="return createPosts();">
-                                    <input type="hidden" name="csrf" value="<?php echo $csrf ?>">
+                                    <input type="hidden" id="csrf" name="csrf" value="<?php echo $csrf ?>">
                                     <div class="col mt-5">
-                                        <select class="select" name="categoryID">
+                                        <select class="select" name="categoryID" id="categoryID">
                                             <option value="" selected disabled>Choose Category</option>
                                             <?php foreach ($categories as $category) : ?>
                                                 <option value="<?php echo $category['categoryID']; ?>">
@@ -100,16 +100,16 @@ if (session_id() == '') {
                                             <?php endforeach ?>
                                         </select>
                                     </div>
-                                    <div class="col mt-5"> <input class="select" type="text" name="title" placeholder="Title"></div>
+                                    <div class="col mt-5"> <input class="select" type="text" name="title" id="text" placeholder="Title"></div>
                                     <div class="col mt-5 fw-bold fs-5"> <label>Featured image:</label></div>
                                     <div class="col mt-5 drag">
                                         <div class="drop-zone">
                                             <span class="drop-zone__prompt pt-3">Browse Image </br></br> OR </br></br> Drag and Drop Here </br></br> <i class="fa-solid fa-up-down-left-right pb-3"></i></span>
-                                            <input type="file" name="image" class="drop-zone__input">
+                                            <input type="file" name="image" id="image" class="drop-zone__input">
                                         </div>
                                     </div>
                                     <div class="col mt-5 fw-bold fs-5"> <label>Caption:</label></div>
-                                    <div class="col mt-5"><textarea placeholder="body" name="body" class="caption"></textarea></div>
+                                    <div class="col mt-5"><textarea placeholder="body" name="body" id="body" class="caption"></textarea></div>
                                     <div class="col mt-5 fs-5"> <label for="published">Publish: &nbsp;
                                             <input type="checkbox" value="1" name="published">&nbsp;
                                         </label>
@@ -147,6 +147,27 @@ if (session_id() == '') {
           'alignleft aligncenter alignright alignjustify | ' +
           'bullist numlist checklist outdent indent | removeformat | a11ycheck code table help'
       });
+      function createPosts() {
+    var data = new FormData;
+    // var data = new FormData(document.getElementById("createPost"));
+    data.append("csrf", document.getElementById("csrf").value);
+    data.append("categoryID", document.getElementById("categoryID").value);
+    data.append("text", document.getElementById("text").value);
+    data.append("image", document.getElementById("image").value);
+    data.append("body", document.getElementById("body").value);
+    data.append("csrf", tinyMCE.get('body').getContent());
+    fetch('?url=/posts/createPost', {
+        method: 'POST',
+        body: data,
+    })
+        .then(res => res.text())
+        .then((txt) => {
+            console.log(txt);
+            // window.location = "?url=/pages/ManagePosts";
+        });
+
+    return false;
+}
     </script>
     <script src="js/cc.js"> </script>
     <script src="https://kit.fontawesome.com/7f32366874.js" crossorigin="anonymous"></script>
